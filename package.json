@@ -1,0 +1,31 @@
+{
+  "name": "lsb-portfolio",
+  "version": "1.0.0",
+  "description": "static assets for lucasb.dev",
+  "main": "src/main.js",
+  "scripts": {
+    "client:dev": "parcel index.html",
+    "dev": "npm run client:dev",
+    "client:prod": "parcel build index.html",
+    "build": "npm run client:prod",
+    "prebuild": "rm -rf dist"
+  },
+  "author": "lsbyerley@gmail.com",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "tailwindcss": "^1.0.4",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@vue/component-compiler-utils": "^3.0.0",
+    "autoprefixer": "^9.6.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.22.2",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
