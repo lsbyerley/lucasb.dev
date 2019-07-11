@@ -47,11 +47,12 @@ export default {
       name: 'Lucas Byerley',
       title: 'Front End Web Developer',
       social: [
-        { icon: '#icon-905', color: 'text-blue-400', label: 'Twitter', href: 'http://twitter.com' },
-        { icon: '#icon-907', color: 'text-white', label: 'Instagram', href: 'http://github.com' },
-        { icon: '#icon-901', color: 'text-white', label: 'Email', href: 'http://email.com' },
-        { icon: '#icon-928', color: 'text-white', label: 'Codepen', href: 'http://codepen.com' },
-        { icon: '#icon-90b', color: 'text-indigo-600', label: 'LinkedIn', href: 'http://linkedin.com' }
+        { icon: '#icon-905', color: 'text-blue-400', label: 'Twitter', href: 'https://twitter.com/lsbyerley' },
+        { icon: '#icon-907', color: 'text-white', label: 'Github', href: 'https://github.com/lsbyerley' },
+        //{ icon: '#icon-907', color: 'text-white', label: 'Instagram', href: 'http://github.com' },
+        //{ icon: '#icon-901', color: 'text-white', label: 'Email', href: 'http://email.com' },
+        { icon: '#icon-928', color: 'text-white', label: 'Codepen', href: 'https://codepen.io/lsbyerley/' },
+        { icon: '#icon-90b', color: 'text-indigo-600', label: 'LinkedIn', href: 'https://www.linkedin.com/in/lucas-b-9a817170' }
       ]
     };
   }
