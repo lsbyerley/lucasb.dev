@@ -3,11 +3,16 @@
     <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 max-w-full rounded-lg text-center">
       <div class="inner max-w-full py-12 py-10 z-10 relative">
 
-        <div id="image01" class="image mb-5">
+        <div class="image mb-5">
           <img src="assets/images/headshot.jpg" alt="" class="w-32 rounded-full inline-block align-top" />
         </div>
-        <h1 id="text02" class="text-white text-4xl tracking-tighter leading-tight mt-5 mb-5">{{ name }}</h1>
-        <p id="text01" class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal">{{ title }}</p>
+        <h1 class="text-white text-4xl tracking-tighter leading-tight mt-5 mb-5">{{ name }}</h1>
+        <p class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal">{{ title }}</p>
+        <a href="https://www.etsu.edu/cbat/computing/" 
+          target="_blank" 
+          class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal hover:text-gray-300">
+          East Tennessee State University
+        </a>
         <ul class="icons flex items-center justify-center mt-5">
           <li :key="s.label" v-for="s in social" class="m-2">
             <a class="flex items-center justify-center w-12 h-12 rounded-full border border-yellow-400" :href="s.href" target="_blank">
