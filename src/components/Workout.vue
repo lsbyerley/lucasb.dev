@@ -4,13 +4,13 @@
       <div class="inner max-w-full py-12 py-10 z-10 relative">
 
         <div class="mb-8">
-          <h2 class="text-white text-4xl mb-2 text-bold">Full Body Core Workout</h2>
-          <p class="text-gray-400">Perform 3 times a week, or twice a week supplemented with other strength work.</p>
+          <h2 class="text-white text-3xl mb-2 text-bold">Full Body Core Workout</h2>
+          <p class="text-gray-400 text-sm">Perform 3 times a week, or twice a week supplemented with other strength work.</p>
         </div>
 
         <div class="mb-8">
           <h3 class="text-white text-2xl mb-2 underline">Warmup</h3>
-          <ul class="text-gray-400 flex flex-col justify-start sm:justify-center">
+          <ul class="text-gray-400 text-sm flex flex-col justify-start sm:justify-center">
             <li>Take 2 Minutes to foam-roll your legs, glutes, and back.</li>
             <li>Two rounds, 30 seconds each of air squats, walking lunges, push-ups and bear crawls</li>
           </ul>
