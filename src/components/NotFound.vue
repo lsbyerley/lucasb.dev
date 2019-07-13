@@ -4,7 +4,7 @@
       <div class="inner max-w-full py-12 py-10 z-10 relative">
         
         <h2 class="text-gray-200 text-3xl">404</h2>
-        <h3 class="text-gray-400 text-2xl">Hmm.. can't find that page pal</h6>
+        <h3 class="text-gray-400 text-2xl">Hmm.. can't find that page pal</h3>
 
       </div>
     </div>

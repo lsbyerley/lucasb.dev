@@ -9,7 +9,7 @@
         </div>
 
         <div class="mb-8">
-          <h3 class="text-white text-2xl mb-2 underline">Warmup</h3>
+          <h3 class="text-white text-2xl mb-2">Warmup</h3>
           <ul class="text-gray-400 text-sm flex flex-col justify-start sm:justify-center">
             <li>Take 2 Minutes to foam-roll your legs, glutes, and back.</li>
             <li>Two rounds, 30 seconds each of air squats, walking lunges, push-ups and bear crawls</li>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="">
-          <h3 class="text-white text-2xl underline">6 Kettlebell Exercises</h3>
+          <h3 class="text-white text-2xl">6 Kettlebell Exercises</h3>
           <p class="text-gray-400 text-sm">Any order, no rest in-between</p>
           <div class="flex flex-wrap">
             <div class="w-full lg:w-1/3 p-3" :key="ex.name" v-for="ex in exercises">
