@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '~/src/components/Home'
-import Workout from '~/src/components/Workout'
-import NotFound from '~/src/components/NotFound'
+import Home from '~/src/pages/Home'
+import Recipes from '~/src/pages/Recipes'
+import Workout from '~/src/pages/Workout'
+import NotFound from '~/src/pages/NotFound'
 
 Vue.use(Router)
 
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/recipes',
+      name: 'Recipes',
+      component: Recipes
     },
     {
       path: '/workout',
