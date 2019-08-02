@@ -8,8 +8,8 @@
         </div>
         <h1 class="text-white text-4xl tracking-tighter leading-tight mt-5 mb-5">{{ name }}</h1>
         <p class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal">{{ title }}</p>
-        <a href="https://www.etsu.edu/cbat/computing/" 
-          target="_blank" 
+        <a href="https://www.etsu.edu/cbat/computing/"
+          target="_blank"
           class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal hover:text-gray-300">
           East Tennessee State University
         </a>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import fe from '~/src/util/fe';
+
 export default {
   name: 'Home',
   data() {
@@ -39,8 +41,7 @@ export default {
       social: [
         { icon: '#icon-905', color: 'text-blue-400', label: 'Twitter', href: 'https://twitter.com/lsbyerley' },
         { icon: '#icon-907', color: 'text-white', label: 'Github', href: 'https://github.com/lsbyerley' },
-        //{ icon: '#icon-907', color: 'text-white', label: 'Instagram', href: 'http://github.com' },
-        //{ icon: '#icon-901', color: 'text-white', label: 'Email', href: 'http://email.com' },
+        //{ icon: '#icon-901', color: 'text-white', label: 'Email', href: fe.encode('blahblah@gmail.com') },
         { icon: '#icon-928', color: 'text-white', label: 'Codepen', href: 'https://codepen.io/lsbyerley/' },
         { icon: '#icon-90b', color: 'text-indigo-600', label: 'LinkedIn', href: 'https://www.linkedin.com/in/lucas-b-9a817170' }
       ]
@@ -94,4 +95,3 @@ export default {
   transition: fill 0.25s ease, stroke 0.25s ease;
 }
 </style>
-
