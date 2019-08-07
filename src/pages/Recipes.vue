@@ -13,6 +13,9 @@
             <div class="no-underline bg-white rounded-lg shadow hover:shadow-raised hover:translateY-2px transition flex-1 flex flex-col overflow-hidden">
               <div class="p-6 flex-1 flex flex-col justify-between">
                 <h3 class="font-display text-black no-underline mb-4">{{r.name}}</h3>
+                <ul>
+                  <li v-for='i in r.ingredients'>{{ i.amount }} {{ i.name }}</li>
+                </ul>
               </div>
             </div>
           </div>
