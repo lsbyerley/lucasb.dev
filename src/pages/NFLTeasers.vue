@@ -24,9 +24,14 @@
         <div v-if="gamesLoading">
           <p class="font-medium text-gray-200">Games Loading..</p>
         </div>
-
-        <div v-if="gamesError">
-          <p class="font-medium text-red-600">Ugh, games error, reload please</p>
+        <div v-else-if="gamesError">
+          <p class="font-medium text-yellow-300">Ugh, an error occurred when fetching the games. Reload please</p>
+        </div>
+        <div v-else-if="!gamesError && !gamesLoading && games.length === 0">
+          <p class="font-medium text-yellow-300">No games! They've either all kicked off or don't have odds</p>
+        </div>
+        <div v-else class="font-medium text-yellow-300">
+          <p>{{ getWeekText() }}</p>
         </div>
 
         <div class="flex flex-wrap -ml-3 -mr-3">
@@ -110,6 +115,8 @@ export default {
   data() {
     return {
       games: [],
+      week: '',
+      seasonType: '',
       gamesLoading: false,
       gamesError: false
     }
@@ -120,6 +127,25 @@ export default {
     }
   },
   methods: {
+    getWeekText() {
+      if (this.week && this.seasonType) {
+        if (this.seasonType === 2) {
+          return `Week ${this.week} Regular Season`
+        } else if (this.seasonType === 3) {
+          if (this.week === 1) {
+            return `Wildcard Weekend`
+          } else if (this.week === 2) {
+            return `Divisional Playoffs`
+          } else if (this.week === 3) {
+            return `Championship Weekend`
+          } else if (this.week === 4) {
+            return `Pro Bowl`
+          } else if (this.week === 5) {
+            return `Super Bowl`
+          }
+        }
+      }
+    },
     showAwayAction(rules) {
       return (rules.totalLTE49 && rules.roadDog1to25)
     },
@@ -142,7 +168,10 @@ export default {
         this.gamesLoading = true
         const res = await axios.get('https://site.web.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?calendartype=blacklist&limit=100&showAirings=true&lang=en&region=us&contentorigin=espn')        
         const normalizedEvents = normalizeEvents(res.data)
-        this.games = normalizedEvents
+
+        this.week = normalizedEvents.week
+        this.seasonType = normalizedEvents.seasonType
+        this.games = normalizedEvents.games
         this.gamesLoading = false;
 
       } catch(err) {

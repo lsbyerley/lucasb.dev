@@ -11,6 +11,8 @@ function between(x, min, max) {
 
 export const normalizeEvents = (data) => {
   const events = _.get(data, 'events');
+  let seasonType = _.get(data, 'season.type')
+  let week = _.get(data, 'week.number')
   let normalizedEvents = []
 
   if (events) {
@@ -91,5 +93,9 @@ export const normalizeEvents = (data) => {
     })
   }
 
-  return normalizedEvents
+  return {
+    seasonType,
+    week,
+    games: normalizedEvents
+  }
 }
