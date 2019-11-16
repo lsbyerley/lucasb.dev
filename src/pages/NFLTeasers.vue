@@ -135,7 +135,7 @@ export default {
     async fetchGames() {
       try {
         this.gamesLoading = true
-        const res = await axios.get('http://site.web.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?calendartype=blacklist&limit=100&showAirings=true&lang=en&region=us&contentorigin=espn')        
+        const res = await axios.get('https://site.web.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?calendartype=blacklist&limit=100&showAirings=true&lang=en&region=us&contentorigin=espn')        
         const normalizedEvents = normalizeEvents(res.data)
         console.log(normalizedEvents)
         this.games = normalizedEvents
