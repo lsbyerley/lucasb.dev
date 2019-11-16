@@ -13,7 +13,8 @@ Vue.use(VueAnalytics, {
   debug: {
     enabled: !isProd,
     sendHitTask: isProd
-  }
+  },
+  router
 })
 
 new Vue({
