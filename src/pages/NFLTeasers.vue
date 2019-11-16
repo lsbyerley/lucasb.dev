@@ -119,17 +119,17 @@ export default {
       return (rules.totalLTE49 && rules.roadDog1to25)
     },
     showAwayActionText(rules) {
-      return 'Tease Up: 6 or 6.5'
+      return 'Tease Up: 6 or 6.5pts'
     },
     showHomeAction(rules) {
       return (rules.totalLTE49 && (rules.homeFave75to9 || rules.homeDog1to25))
     },
     showHomeActionText(rules) {
       if (rules.homeFave75to9) {
-        return 'Tease Down: 6 or 6.5'
+        return 'Tease Down 6 or 6.5pts'
       }
       if (rules.homeDog1to25) {
-        return 'Tease Up: 6 or 6.5'
+        return 'Tease Up: 6 or 6.5pts'
       }
     },
     async fetchGames() {
