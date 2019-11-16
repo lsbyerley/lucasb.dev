@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'EZLight';
+  src: url('~/src/assets/fonts/ez-sans-light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EZMedium';
+  src: url('~/src/assets/fonts/ez-sans-medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EZBold';
+  src: url('~/src/assets/fonts/ez-sans-bold.woff2') format('woff2');
+}
+
 a {
   transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }

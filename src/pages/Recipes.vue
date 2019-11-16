@@ -41,12 +41,12 @@ export default {
             { name: 'Smoked Paprika', amount: '1 Tsp'},
             { name: 'Cumin', amount: '1 Tsp'},
             { name: 'Oregano', amount: '1/2 Tsp'},
-            { name: 'Salt', amount: '1/2 Tsp'},
             { name: 'Black Pepper', amount: '1/2 Tsp'},
+            { name: 'Salt', amount: '1/2 Tsp'},
+            { name: 'Cornstarch', amount: '1/2 Tsp' },
             { name: 'Cayenne Pepper', amount: '1/4 Tsp'},
             { name: 'Garlic Powder', amount: '1/4 Tsp'},
-            { name: 'Onion Powder', amount: '1/4 Tsp'},
-            { name: 'Cornstarch', amount: '1/2 Tsp' }
+            { name: 'Onion Powder', amount: '1/4 Tsp'}
           ],
           directions: [
             { text: 'Combine ingredients and mix into cooked meat.' },
