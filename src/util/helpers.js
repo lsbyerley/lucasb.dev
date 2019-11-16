@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import dayjs from 'dayjs'
 
 function between(x, min, max) {
 
@@ -19,6 +20,7 @@ export const normalizeEvents = (data) => {
     _.forEach(events, (event, i) =>{
 
       const status = _.get(event, 'status');
+      let date = _.get(event, 'competitions[0].date')
       const teamOne = _.get(event, 'competitions[0].competitors[0]')
       const teamTwo = _.get(event, 'competitions[0].competitors[1]')
       let oddsDetails = _.get(event, 'competitions[0].odds[0].details')
@@ -29,6 +31,11 @@ export const normalizeEvents = (data) => {
       let isAwayUnderdog = false
       let isHomeFavorite = false
       let isHomeUnderdog = false
+      let gameDate = ''
+
+      if (date && dayjs(date).isValid()) {
+        gameDate = dayjs(date).format('dddd h:mm a')
+      }
 
       if (oddsDetails && vegasTotal) {
 
@@ -77,6 +84,7 @@ export const normalizeEvents = (data) => {
         delete homeTeam.records
 
         normalizedEvents.push({
+          gameDate,
           isAwayFavorite,
           isAwayUnderdog,
           isHomeFavorite,

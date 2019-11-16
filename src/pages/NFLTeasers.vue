@@ -37,7 +37,8 @@
         <div class="flex flex-wrap -ml-3 -mr-3">
           <div :key="g.id" v-for="g in games" class="w-full md:w-1/2 p-3">
 
-            <div class="game rounded-sm" :style="{backgroundColor: 'rgba(34,36,43,0.859)'}">
+            <div class="game rounded-sm relative" :style="{backgroundColor: 'rgba(34,36,43,0.859)'}">
+              <p class="leading-snug pt-2 text-gray-300 text-xs">{{ g.gameDate }}</p>
               <section class="flex py-3 px-1 justify-center text-gray-200">
                 <div class="flex flex-col w-1/4 border-gray-200 border-r py-4 pr-4 text-right">
                   <p class="text-xs tracking-tighter">{{ g.away.record }}</p>

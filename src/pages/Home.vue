@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-6 relative z-20">
+  <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-3 relative z-20">
     <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 max-w-full rounded-lg text-center">
       <div class="inner max-w-full py-12 py-10 z-10 relative">
 
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import fe from '~/src/util/fe';
+//import fe from '~/src/util/fe';
 import Link from 'vue-router'
 
 export default {
