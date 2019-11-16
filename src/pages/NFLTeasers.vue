@@ -25,6 +25,10 @@
           <p class="font-medium text-gray-200">Games Loading..</p>
         </div>
 
+        <div v-if="gamesError">
+          <p class="font-medium text-red-600">Ugh, games error, reload please</p>
+        </div>
+
         <div class="flex flex-wrap -ml-3 -mr-3">
           <div :key="g.id" v-for="g in games" class="w-full md:w-1/2 p-3">
 
@@ -106,7 +110,8 @@ export default {
   data() {
     return {
       games: [],
-      gamesLoading: false
+      gamesLoading: false,
+      gamesError: false
     }
   },
   created() {
@@ -137,11 +142,12 @@ export default {
         this.gamesLoading = true
         const res = await axios.get('https://site.web.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?calendartype=blacklist&limit=100&showAirings=true&lang=en&region=us&contentorigin=espn')        
         const normalizedEvents = normalizeEvents(res.data)
-        console.log(normalizedEvents)
         this.games = normalizedEvents
         this.gamesLoading = false;
 
       } catch(err) {
+        this.gamesLoading = false
+        this.gamesError = true
         console.log(err.message, err.stack)
       }
       
