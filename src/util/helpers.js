@@ -65,7 +65,7 @@ export const normalizeEvents = (data) => {
 
         homeTeam.teaserRules = {
           totalLTE49: (vegasTotal <= 49),
-          homeFave75to9: between(homeTeam.spread, 7.5, 9),
+          homeFave75to9: between(homeTeam.spread, -7.5, -9),
           homeDog1to25: between(homeTeam.spread, 1, 2.5)
         }
 
