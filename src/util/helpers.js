@@ -37,7 +37,7 @@ export const normalizeEvents = (data) => {
         gameDate = dayjs(date).format('dddd h:mm a')
       }
 
-      if (oddsDetails && vegasTotal) {
+      if (oddsDetails && vegasTotal && oddsDetails !== 'EVEN') {
 
         let detailSplits = oddsDetails.split(' ')
         let favAbbrev = detailSplits[0]
