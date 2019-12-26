@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-6 relative z-20">
-    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 w-full rounded-lg text-center px-2">
+    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 w-full rounded-lg text-center px-2">
       <div class="inner max-w-full py-12 py-10 z-10 relative">
 
         <div class="mb-8">
@@ -58,7 +58,6 @@ export default {
 }
 
 #main {
-  background-color: rgba(34,36,43,0.859);
   transition: opacity 1s ease 0s, transform 1s ease 0s;
 
   .inner {

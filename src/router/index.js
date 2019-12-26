@@ -5,6 +5,7 @@ import Recipes from '~/src/pages/Recipes'
 import Workout from '~/src/pages/Workout'
 import NotFound from '~/src/pages/NotFound'
 import NFLTeasers from '~/src/pages/NFLTeasers'
+import SwansonQuote from '~/src/pages/SwansonQuote'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/teasers',
       name: 'NFLTeasers',
       component: NFLTeasers
+    },
+    {
+      path: '/swanson',
+      name: 'SwansonQuote',
+      component: SwansonQuote
     },
     {
       path: '*',

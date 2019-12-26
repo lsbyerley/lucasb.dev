@@ -1,23 +1,23 @@
 <template>
   <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-3 relative z-20">
-    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 max-w-full rounded-lg text-center">
+    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 max-w-full rounded-lg text-center">
       <div class="inner max-w-full py-12 py-10 z-10 relative">
 
-        <div class="image mb-5">
+        <div class="fadein image mb-5">
           <img src="~/src/assets/images/headshot.jpg" alt="" class="w-32 rounded-full inline-block align-top" />
         </div>
 
-        <h1 class="text-white text-4xl tracking-tighter leading-tight mt-5 mb-5">{{ name }}</h1>
+        <h1 class="fadein text-white text-4xl tracking-tighter leading-tight mt-5 mb-5">{{ name }}</h1>
         
-        <p class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal">{{ title }}</p>
+        <p class="fadein text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal">{{ title }}</p>
         
         <a href="https://www.etsu.edu/cbat/computing/"
           target="_blank"
-          class="text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal hover:text-gray-300">
+          class="fadein text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal hover:text-gray-300">
           East Tennessee State University
         </a>
 
-        <ul class="icons flex items-center justify-center mt-5">
+        <ul class="fadein icons flex items-center justify-center mt-5">
           <li :key="s.label" v-for="s in social" class="m-2">
             <a class="flex items-center justify-center w-12 h-12 rounded-full border border-yellow-400" :href="s.href" target="_blank">
               <svg class="w-6 h-6 fill-current" :class="s.color">
@@ -28,9 +28,9 @@
           </li>
         </ul>
 
-        <div class="flex justify-around items-center pt-4">
-          <router-link class="text-gray-700 hover:text-gray-400" to="teasers">Teasers</router-link>
-          <a class="text-gray-700 hover:text-gray-400" href="https://steelehoops.com/" target="_blank">Hoops</a>
+        <div class="fadein flex justify-around items-center pt-4">
+          <router-link class="text-gray-500 hover:text-gray-400" to="teasers">NFL Teasers</router-link>
+          <a class="text-gray-500 hover:text-gray-400" href="https://steelehoops.com/" target="_blank">SteeleHoops</a>
         </div>
 
       </div>
@@ -66,30 +66,29 @@ export default {
 }
 
 #main {
-  background-color: rgba(34,36,43,0.859);
   transition: opacity 1s ease 0s, transform 1s ease 0s;
 
   .inner {
     width: 25rem;
   }
 
-  > .inner :nth-child(2) {
+  > .inner :nth-child(2).fadein {
     transition-delay: 0.25s;
   }
 
-  > .inner :nth-child(3) {
+  > .inner :nth-child(3).fadein {
     transition-delay: 0.5s;
   }
 
-  > .inner :nth-child(4) {
+  > .inner :nth-child(4).fadein {
     transition-delay: 0.75s;
   }
 
-  > .inner :nth-child(5) {
+  > .inner :nth-child(5).fadein {
     transition-delay: 1s;
   }
 
-  > .inner :nth-child(6) {
+  > .inner :nth-child(6).fadein {
     transition-delay: 1.25s;
   }
 }

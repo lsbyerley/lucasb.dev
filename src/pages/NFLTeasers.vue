@@ -3,7 +3,7 @@
     <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 w-full rounded-lg text-center">
       <div class="inner w-full z-10 relative">
 
-        <div class="flex flex-col md:flex-row mb-8 md:p-3 rounded-sm" :style="{backgroundColor: 'rgba(34,36,43,0.859)'}">
+        <div class="bg-trans flex flex-col md:flex-row mb-8 md:p-3 rounded-sm">
           <div class="flex flex-col justify-center w-full md:w-1/2">
             <h2 class="text-white text-3xl mb-1 font-bold">NFL Teasers</h2>
             <a class="text-gray-400 font-medium mb-4 underline" href="https://medium.com/@adamchernoff/how-to-maximise-basic-teaser-strategy-in-nfl-betting-cd0838a03528" target="_blank">Basic Teaser Strategy</a>
@@ -37,7 +37,7 @@
         <div class="flex flex-wrap -ml-3 -mr-3">
           <div :key="g.id" v-for="g in games" class="w-full md:w-1/2 p-3">
 
-            <div class="game rounded-sm relative" :style="{backgroundColor: 'rgba(34,36,43,0.859)'}">
+            <div class="game bg-trans rounded-sm relative">
               <p class="leading-snug pt-2 text-gray-300 text-xs">{{ g.gameDate }}</p>
               <section class="flex py-3 px-1 justify-center text-gray-200">
                 <div class="flex flex-col w-1/4 border-gray-200 border-r py-4 pr-4 text-right">
