@@ -1,34 +1,102 @@
 <template>
-  <nav>
-      <div class="container mx-auto px-6 py-2 flex justify-between items-center">
-        <a class="font-bold text-2xl lg:text-4xl" href="#">VPEX</a>
-        <div class="block lg:hidden">
-          <button class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+  <nav class="relative z-20">
+
+    <div class="mx-auto px-6 py-2 flex justify-between items-center">
+      <a class="font-semibold text-2xl lg:text-4xl text-gray-100" href="/">lucasb.dev</a>
+      <div class="block">
+        <button ref="openButton" @click="open" type="button" class="block text-gray-100 focus:outline-none hover:text-gray-400 focus:text-gray-100" aria-label="OpenMenu">
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 6C3 5.44772 3.44772 5 4 5H20C20.5523 5 21 5.44772 21 6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6Z"/>
+            <path d="M3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12Z"/>
+            <path d="M4 17C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H4Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <transition
+      enter-class="opacity-0"
+      enter-active-class="ease-out transition-medium"
+      enter-to-class="opacity-100"
+      leave-class="opacity-100"
+      leave-active-class="ease-out transition-medium"
+      leave-to-class="opacity-0"
+      appear
+    >
+      <div class="absolute top-0 left-0 w-screen h-screen bg-blue-900" v-if="isOpen">
+        <div :class="isOpen ? 'block' : 'hidden'" class="absolute top-0 right-0 px-6 py-3">
+          <button ref="closeButton" @click="close" type="button" class="text-gray-100 focus:outline-none hover:text-gray-400 focus:text-gray-100" aria-label="CloseMenu">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.2929 19.7071C18.6834 20.0976 19.3166 20.0976 19.7071 19.7071C20.0976 19.3166 20.0976 18.6834 19.7071 18.2929L13.4142 12L19.7071 5.70711C20.0976 5.31658 20.0976 4.68342 19.7071 4.29289C19.3166 3.90237 18.6834 3.90237 18.2929 4.29289L12 10.5858L5.70711 4.29289C5.31658 3.90237 4.68342 3.90237 4.29289 4.29289C3.90237 4.68342 3.90237 5.31658 4.29289 5.70711L10.5858 12L4.29289 18.2929C3.90237 18.6834 3.90237 19.3166 4.29289 19.7071C4.68342 20.0976 5.31658 20.0976 5.70711 19.7071L12 13.4142L18.2929 19.7071Z"/>
             </svg>
           </button>
         </div>
-        <div class="hidden lg:block">
-          <ul class="inline-flex">
-            <li>
-              <a class="px-4 font-bold" href="/">Home</a>
-            </li>
-            <li>
-              <a class="px-4 hover:text-gray-800" href="#">About</a>
-            </li>
-          </ul>
+        <div class="pt-16">
+          <router-link class="block py-4 text-center text-gray-500 hover:text-gray-400" to="swanson">Random Swanson</router-link>
+          <router-link class="block py-4 text-center text-gray-500 hover:text-gray-400" to="teasers">NFL Teasers</router-link>
+          <a class="block py-4 text-center text-gray-500 hover:text-gray-400" href="https://steelehoops.com/" target="_blank">SteeleHoops</a>
         </div>
       </div>
-    </nav>
+    </transition>
+
+  </nav>
 </template>
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data() {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    open() {
+      this.isOpen = true
+    },
+    close() {
+      this.isOpen = false
+    }
+  },
+  watch: {
+    '$route' () {
+      console.log('helloo!')
+      this.isOpen = false
+      //$('#navbar-collapse').collapse('hide');
+    }
+  }
 }
 </script>
 
 <style lang="scss">
+.opacity-0{
+  opacity:0
+}
+.opacity-100{
+  opacity:1
+}
+.ease-in{
+  transition-timing-function:cubic-bezier(.4,0,1,1)
+}
+.ease-out{
+  transition-timing-function:cubic-bezier(0,0,.2,1)
+}
+.transition-transform{
+  transition-property:transform
+}
+.transition-opacity{
+  transition-property:opacity
+}
+.transition-medium{
+  transition-duration:.2s
+}
+.translate-x-full{
+  transform:translateX(100%)
+}
+.translate-x-0{
+  transform:translateX(0)
+}
+.transition-slow{
+  transition-duration:.3s
+}
 </style>

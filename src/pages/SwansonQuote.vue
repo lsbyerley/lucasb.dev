@@ -1,7 +1,7 @@
 <template>
-  <div id="wrapper" class="flex flex-col min-h-screen p-3 relative z-20 font-light">
-    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 w-full rounded-lg text-center">
-      <div class="inner w-full z-10 relative">
+  <div id="wrapper" class="flex flex-col min-h-screen p-3 relative  font-light">
+    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0  w-full rounded-lg text-center">
+      <div class="inner w-full  relative">
 
         <div class="bg-trans rounded-sm p-10">
           <h2 class="text-gray-200 font-bold text-3xl border-b-4 border-gray-600 pb-4 mb-4">Random Swanson</h2>

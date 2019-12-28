@@ -1,7 +1,7 @@
 <template>
-  <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-3 relative z-20">
-    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 max-w-full rounded-lg text-center">
-      <div class="inner max-w-full py-12 py-10 z-10 relative">
+  <div id="wrapper" class="z-10 flex flex-col items-center justify-center min-h-screen p-3 relative">
+    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full rounded-lg text-center">
+      <div class="inner max-w-full py-12 py-10 relative">
 
         <div class="fadein image mb-5">
           <img src="~/src/assets/images/headshot.jpg" alt="" class="w-32 rounded-full inline-block align-top" />

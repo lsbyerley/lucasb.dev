@@ -1,7 +1,7 @@
 <template>
-  <div id="wrapper" class="flex flex-col min-h-screen p-3 relative z-20 font-light">
-    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 w-full rounded-lg text-center">
-      <div class="inner w-full z-10 relative">
+  <div id="wrapper" class="flex flex-col min-h-screen p-3 relative  font-light">
+    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0  w-full rounded-lg text-center">
+      <div class="inner w-full  relative">
 
         <div class="bg-trans flex flex-col md:flex-row mb-8 md:p-3 rounded-sm">
           <div class="flex flex-col justify-center w-full md:w-1/2">

@@ -1,16 +1,21 @@
 <template>
-  <transition name="fade-in-up" mode="out-in">
-    <router-view></router-view>
-  </transition>
+  <div class="" id="app">
+    <NavBar></NavBar>
+    <transition name="fade-in-up" mode="out-in">
+      <router-view></router-view>
+    </transition>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
 const apiHost = process.env.API_HOST || ''
 //https://carrd.co/dashboard/5391156173681346/asset/icons?v=1561062975520
+import NavBar from '~/src/components/NavBar'
 
 export default {
   name: 'App',
+  components: { NavBar },
   mounted() {
     const $body = document.body;
     addEventListener('load', () => {

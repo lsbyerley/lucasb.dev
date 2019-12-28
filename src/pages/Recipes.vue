@@ -1,7 +1,7 @@
 <template>
-  <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-6 relative z-20">
-    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 z-10 w-full rounded-lg text-center px-2">
-      <div class="inner max-w-full py-12 py-10 z-10 relative">
+  <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-6 relative ">
+    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0  w-full rounded-lg text-center px-2">
+      <div class="inner max-w-full py-12 py-10  relative">
 
         <div class="mb-8">
           <h2 class="text-white text-3xl mb-2 text-bold">Recipes</h2>
@@ -14,7 +14,7 @@
               <div class="p-6 flex-1 flex flex-col justify-between">
                 <h3 class="font-display text-black no-underline mb-4">{{r.name}}</h3>
                 <ul>
-                  <li v-for='i in r.ingredients'>{{ i.amount }} {{ i.name }}</li>
+                  <li :key="i.name" v-for='i in r.ingredients'>{{ i.amount }} {{ i.name }}</li>
                 </ul>
               </div>
             </div>
