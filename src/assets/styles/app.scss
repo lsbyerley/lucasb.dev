@@ -23,10 +23,6 @@ a {
   transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-body {
-  overflow: hidden;
-}
-
 body:before {
   content: '';
   display: block;

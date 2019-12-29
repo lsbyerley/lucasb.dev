@@ -32,6 +32,7 @@
           </button>
         </div>
         <div class="pt-16">
+          <router-link class="block py-4 text-center text-gray-500 hover:text-gray-400" to="/">Home</router-link>
           <router-link class="block py-4 text-center text-gray-500 hover:text-gray-400" to="swanson">Random Swanson</router-link>
           <router-link class="block py-4 text-center text-gray-500 hover:text-gray-400" to="teasers">NFL Teasers</router-link>
           <a class="block py-4 text-center text-gray-500 hover:text-gray-400" href="https://steelehoops.com/" target="_blank">SteeleHoops</a>
@@ -43,6 +44,8 @@
 </template>
 
 <script>
+let bodyEl = document.getElementsByTagName('body')[0];
+
 export default {
   name: 'NavBar',
   data() {
@@ -52,15 +55,19 @@ export default {
   },
   methods: {
     open() {
+      bodyEl.classList.add('overflow-hidden')
       this.isOpen = true
     },
     close() {
+      bodyEl.classList.remove('overflow-hidden')
       this.isOpen = false
     }
   },
   watch: {
-    '$route' () {
-      console.log('helloo!')
+    '$route' (to, from) {
+      console.log('to', to)
+      console.log('from', from)
+      bodyEl.classList.remove('overflow-hidden')
       this.isOpen = false
       //$('#navbar-collapse').collapse('hide');
     }

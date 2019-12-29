@@ -6,7 +6,7 @@ const quotes = [
   { text: 'Never half-ass two things. Whole-ass one thing.' },
   { text: '[On bowling] Straight down the middle. No hook, no spin, no fuss. Anything more and this becomes figure skating.' },
   { text: 'Fishing relaxes me. It\'s like yoga, except I still get to kill something.' },
-  { text: 'Just give me all the bacon and eggs you have. Wait...wait. I worry what you just heard was: Give me a lot of bacon and eggs. What I said was: Give me all the bacon and eggs you have. Do you understand?' },
+  { text: 'Just give me all the bacon and eggs you have. Wait...wait. I worry what you just heard was: Give me a lot of bacon and eggs. What I said was: Give me ALL the bacon and eggs you have. Do you understand?' },
   { text: 'When people get a little too chummy with me I like to call them by the wrong name to let them know I don\'t really care about them.' },
   { text: 'There\'s only one thing I hate more than lying: skim milk. Which is water that\'s lying about being milk.' },
   { text: 'The less I know about other people\'s affairs, the happier I am. I\'m not interested in caring about people. I once worked with a guy for three years and never learned his name. Best friend I ever had. We still never talk sometimes.' },
