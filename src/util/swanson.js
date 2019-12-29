@@ -36,7 +36,7 @@ const quotes = [
   { text: 'I\'ll take that steak to go. Please and thank you.' },
   { text: 'Creativity is for people with glasses who like to lie.' },
   { text: 'Children are terrible artists and artists are crooks.' },
-  { text: 'Tom put all my records into this rectangle!' },
+  //{ text: 'Tom put all my records into this rectangle!' },
   { text: 'I believe luck is a concept invented by the weak to explain their failures.' },
   { text: 'What\'s cholesterol?' },
   { text: 'People who buy things are suckers.' },

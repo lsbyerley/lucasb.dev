@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper" class="z-10 flex flex-col items-center justify-center min-h-screen p-3 relative">
+  <div id="wrapper" class="z-10 flex flex-col items-center justify-start md:justify-center min-h-screen p-3 relative">
     <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full rounded-lg text-center">
       <div class="inner max-w-full py-12 py-10 relative">
 
