@@ -28,11 +28,6 @@
           </li>
         </ul>
 
-        <div class="fadein flex justify-around items-center pt-4">
-          <router-link class="text-gray-500 hover:text-gray-400" to="teasers">NFL Teasers</router-link>
-          <a class="text-gray-500 hover:text-gray-400" href="https://steelehoops.com/" target="_blank">SteeleHoops</a>
-        </div>
-
       </div>
     </div>
   </div>
