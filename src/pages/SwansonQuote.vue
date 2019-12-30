@@ -11,7 +11,7 @@
             <cite>Ron Swanson</cite>
           </blockquote>
           <div class="w-32 h-40 m-auto">
-            <img @click="newQuote" src="~/src/assets/images/swanson.png" />
+            <img class="cursor-pointer" @click="newQuote" src="~/src/assets/images/swanson.png" />
           </div>
         </div>
 
