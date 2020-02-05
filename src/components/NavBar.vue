@@ -76,34 +76,20 @@ export default {
 </script>
 
 <style lang="scss">
-.opacity-0{
-  opacity:0
+/* possible transition
+.inactive {
+  transition: all .3s ease-in-out;
+  transform: scale(.75);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
-.opacity-100{
-  opacity:1
+.active {
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  overflow: auto;
+  transform: scale(1);
 }
-.ease-in{
-  transition-timing-function:cubic-bezier(.4,0,1,1)
-}
-.ease-out{
-  transition-timing-function:cubic-bezier(0,0,.2,1)
-}
-.transition-transform{
-  transition-property:transform
-}
-.transition-opacity{
-  transition-property:opacity
-}
-.transition-medium{
-  transition-duration:.2s
-}
-.translate-x-full{
-  transform:translateX(100%)
-}
-.translate-x-0{
-  transform:translateX(0)
-}
-.transition-slow{
-  transition-duration:.3s
-}
+*/
 </style>
