@@ -1,25 +1,25 @@
 <template>
-  <div id="wrapper" class="z-10 flex flex-col items-center justify-start md:justify-center min-h-screen p-3 relative">
-    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full rounded-lg text-center">
-      <div class="inner max-w-full py-12 py-10 relative">
+  <div id="wrapper" class="relative z-10 flex flex-col items-center justify-start min-h-screen p-3 md:justify-center">
+    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full text-center rounded-lg bg-trans">
+      <div class="relative max-w-full py-10 py-12 inner">
 
-        <div class="fadein image mb-5">
-          <img src="~/src/assets/images/headshot.jpg" alt="" class="w-32 rounded-full inline-block align-top" />
+        <div class="mb-5 fadein image">
+          <img src="~/src/assets/images/headshot.jpg" alt="" class="inline-block w-32 align-top rounded-full" />
         </div>
 
-        <h1 class="fadein text-white text-4xl tracking-tighter leading-tight mt-5 mb-5">{{ name }}</h1>
+        <h1 class="mt-5 mb-5 text-4xl leading-tight tracking-tighter text-white fadein">{{ name }}</h1>
         
-        <p class="fadein text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal">{{ title }}</p>
+        <p class="mt-5 mb-5 leading-normal tracking-tight text-gray-500 opacity-75 fadein text-md">{{ title }}</p>
         
         <a href="https://www.etsu.edu/cbat/computing/"
           target="_blank"
-          class="fadein text-gray-500 opacity-75 text-md mt-5 mb-5 tracking-tight leading-normal hover:text-gray-300">
+          class="mt-5 mb-5 leading-normal tracking-tight text-gray-500 opacity-75 fadein text-md hover:text-gray-300">
           East Tennessee State University
         </a>
 
-        <ul class="fadein icons flex items-center justify-center mt-5">
+        <ul class="flex items-center justify-center mt-5 fadein icons">
           <li :key="s.label" v-for="s in social" class="m-2">
-            <a class="flex items-center justify-center w-12 h-12 rounded-full border border-yellow-400" :href="s.href" target="_blank">
+            <a class="flex items-center justify-center w-12 h-12 border border-yellow-400 rounded-full" :href="s.href" target="_blank">
               <svg class="w-6 h-6 fill-current" :class="s.color">
                 <use v-bind="{'xlink:href':s.icon}"></use>
               </svg>

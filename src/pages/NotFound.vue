@@ -1,10 +1,10 @@
 <template>
-  <div id="wrapper" class="flex flex-col items-center justify-center min-h-screen p-6 relative ">
-    <div id="main" class="bg-trans flex items-center justify-center flex-grow-0 flex-shrink-0  w-full rounded-lg text-center px-2">
-      <div class="inner max-w-full py-12 py-10  relative">
+  <div id="wrapper" class="relative flex flex-col items-center justify-center min-h-screen p-6 ">
+    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full px-2 text-center rounded-lg bg-trans">
+      <div class="relative max-w-full py-10 py-12 inner">
         
-        <h2 class="text-gray-200 text-3xl">404</h2>
-        <h3 class="text-gray-400 text-2xl">Hmm.. can't find that page pal</h3>
+        <h2 class="text-3xl text-gray-200">404</h2>
+        <h3 class="text-2xl text-gray-400">Hmm.. can't find that page pal</h3>
 
       </div>
     </div>

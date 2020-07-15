@@ -1,16 +1,16 @@
 <template>
-  <div id="wrapper" class="flex flex-col min-h-screen p-3 relative  font-light">
-    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0  w-full rounded-lg text-center">
-      <div class="inner w-full  relative">
+  <div id="wrapper" class="relative flex flex-col min-h-screen p-3 font-light">
+    <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full text-center rounded-lg">
+      <div class="relative w-full inner">
 
-        <div class="bg-trans flex flex-col md:flex-row mb-8 md:p-3 rounded-sm">
+        <div class="flex flex-col mb-8 rounded-sm bg-trans md:flex-row md:p-3">
           <div class="flex flex-col justify-center w-full md:w-1/2">
-            <h2 class="text-white text-3xl mb-1 font-bold">NFL Teasers</h2>
-            <a class="text-gray-400 font-medium mb-4 underline" href="https://medium.com/@adamchernoff/how-to-maximise-basic-teaser-strategy-in-nfl-betting-cd0838a03528" target="_blank">Basic Teaser Strategy</a>
+            <h2 class="mb-1 text-3xl font-bold text-white">NFL Teasers</h2>
+            <a class="mb-4 font-medium text-gray-400 underline" href="https://medium.com/@adamchernoff/how-to-maximise-basic-teaser-strategy-in-nfl-betting-cd0838a03528" target="_blank">Basic Teaser Strategy</a>
           </div>
-          <div class="w-full md:w-1/2 py-4">
-            <p class="font-medium text-gray-400 mb-2">The Rules</p>
-            <ul class="text-white text-sm">
+          <div class="w-full py-4 md:w-1/2">
+            <p class="mb-2 font-medium text-gray-400">The Rules</p>
+            <ul class="text-sm text-white">
               <li>Games with a total of 49 or less</li>
               <li>Home favorites of 7.5 - 9 (tease down)</li>
               <li>Home underdogs of 1 - 2.5 (tease up)</li>
@@ -35,16 +35,16 @@
         </div>
 
         <div class="flex flex-wrap -ml-3 -mr-3">
-          <div :key="g.id" v-for="g in games" class="w-full md:w-1/2 p-3">
+          <div :key="g.id" v-for="g in games" class="w-full p-3 md:w-1/2">
 
-            <div class="game bg-trans rounded-sm relative">
-              <p class="leading-snug pt-2 text-gray-300 text-xs">{{ g.gameDate }}</p>
-              <section class="flex py-3 px-1 justify-center text-gray-200">
-                <div class="flex flex-col w-1/4 border-gray-200 border-r py-4 pr-4 text-right">
+            <div class="relative rounded-sm game bg-trans">
+              <p class="pt-2 text-xs leading-snug text-gray-300">{{ g.gameDate }}</p>
+              <section class="flex justify-center px-1 py-3 text-gray-200">
+                <div class="flex flex-col w-1/4 py-4 pr-4 text-right border-r border-gray-200">
                   <p class="text-xs tracking-tighter">{{ g.away.record }}</p>
-                  <p class="uppercase font-bold tracking-tighter hidden md:block">{{ g.away.team.name }}</p>
-                  <p class="uppercase font-bold tracking-tighter md:hidden">{{ g.away.team.abbreviation }}</p>
-                  <p class="font-medium text-lg text-gray-400">{{ g.away.spread }}</p>
+                  <p class="hidden font-bold tracking-tighter uppercase md:block">{{ g.away.team.name }}</p>
+                  <p class="font-bold tracking-tighter uppercase md:hidden">{{ g.away.team.abbreviation }}</p>
+                  <p class="text-lg font-medium text-gray-400">{{ g.away.spread }}</p>
                 </div>
                 <div class="flex flex-col justify-center">
                   <div class="flex items-center justify-center">
@@ -58,15 +58,15 @@
                       <img class="w-12" :src="g.home.team.logo" />
                     </div>
                   </div>
-                  <div class="text-center pt-2">
+                  <div class="pt-2 text-center">
                     <p class="font-medium">{{ g.vegasTotal }}</p>
                   </div>
                 </div>
-                <div class="flex flex-col w-1/4 border-gray-200 border-l py-4 pl-4 text-left">
+                <div class="flex flex-col w-1/4 py-4 pl-4 text-left border-l border-gray-200">
                   <p class="text-xs tracking-tighter">{{ g.home.record }}</p>
-                  <p class="uppercase font-bold tracking-tighter hidden md:block">{{ g.home.team.name }}</p>
-                  <p class="uppercase font-bold tracking-tighter md:hidden">{{ g.home.team.abbreviation }}</p>
-                  <p class="font-medium text-lg text-gray-400">{{ g.home.spread }}</p>
+                  <p class="hidden font-bold tracking-tighter uppercase md:block">{{ g.home.team.name }}</p>
+                  <p class="font-bold tracking-tighter uppercase md:hidden">{{ g.home.team.abbreviation }}</p>
+                  <p class="text-lg font-medium text-gray-400">{{ g.home.spread }}</p>
                 </div>
               </section>
               <section class="flex opacity-75">
@@ -75,24 +75,24 @@
               </section>
               <section class="flex p-3 bg-gray-900">
                 <div class="w-1/2">
-                  <p class="text-gray-500 uppercase text-sm font-medium pb-2">Tease?</p>
+                  <p class="pb-2 text-sm font-medium text-gray-500 uppercase">Tease?</p>
                   <div v-if="showAwayAction(g.away.teaserRules)">
-                    <p class="text-green-600 font-medium">{{ showAwayActionText(g.away.teaserRules) }}</p>
+                    <p class="font-medium text-green-600">{{ showAwayActionText(g.away.teaserRules) }}</p>
                   </div>
                   <div v-else>
                     <div class="text-red-600">
-                      <svg class="w-5 fill-current block m-auto pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm1.41-1.41A8 8 0 1 0 15.66 4.34 8 8 0 0 0 4.34 15.66zm9.9-8.49L11.41 10l2.83 2.83-1.41 1.41L10 11.41l-2.83 2.83-1.41-1.41L8.59 10 5.76 7.17l1.41-1.41L10 8.59l2.83-2.83 1.41 1.41z"/></svg>
+                      <svg class="block w-5 pt-1 m-auto fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm1.41-1.41A8 8 0 1 0 15.66 4.34 8 8 0 0 0 4.34 15.66zm9.9-8.49L11.41 10l2.83 2.83-1.41 1.41L10 11.41l-2.83 2.83-1.41-1.41L8.59 10 5.76 7.17l1.41-1.41L10 8.59l2.83-2.83 1.41 1.41z"/></svg>
                     </div>
                   </div>
                 </div>
                 <div class="w-1/2">
-                  <p class="text-gray-500 uppercase text-sm font-medium pb-2">Tease?</p>
+                  <p class="pb-2 text-sm font-medium text-gray-500 uppercase">Tease?</p>
                   <div v-if="showHomeAction(g.home.teaserRules)">
-                    <p class="text-green-600 font-medium">{{ showHomeActionText(g.home.teaserRules) }}</p>
+                    <p class="font-medium text-green-600">{{ showHomeActionText(g.home.teaserRules) }}</p>
                   </div>
                   <div v-else>
                     <div class="text-red-600">
-                      <svg class="w-5 fill-current block m-auto pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm1.41-1.41A8 8 0 1 0 15.66 4.34 8 8 0 0 0 4.34 15.66zm9.9-8.49L11.41 10l2.83 2.83-1.41 1.41L10 11.41l-2.83 2.83-1.41-1.41L8.59 10 5.76 7.17l1.41-1.41L10 8.59l2.83-2.83 1.41 1.41z"/></svg>
+                      <svg class="block w-5 pt-1 m-auto fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm1.41-1.41A8 8 0 1 0 15.66 4.34 8 8 0 0 0 4.34 15.66zm9.9-8.49L11.41 10l2.83 2.83-1.41 1.41L10 11.41l-2.83 2.83-1.41-1.41L8.59 10 5.76 7.17l1.41-1.41L10 8.59l2.83-2.83 1.41 1.41z"/></svg>
                     </div>
                   </div>
                 </div>
