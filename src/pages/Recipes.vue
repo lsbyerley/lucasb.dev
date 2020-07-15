@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="relative flex flex-col items-center justify-center min-h-screen p-6 ">
     <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full px-2 text-center rounded-lg bg-trans">
-      <div class="relative max-w-full py-10 py-12 inner">
+      <div class="relative max-w-full py-10 inner">
 
         <div class="mb-8">
           <h2 class="mb-2 text-3xl text-white text-bold">Recipes</h2>

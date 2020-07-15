@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="relative flex flex-col items-center justify-center min-h-screen p-6 ">
     <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 w-full px-2 text-center rounded-lg bg-trans">
-      <div class="relative max-w-full py-10 py-12 inner">
+      <div class="relative max-w-full py-10 inner">
         
         <h2 class="text-3xl text-gray-200">404</h2>
         <h3 class="text-2xl text-gray-400">Hmm.. can't find that page pal</h3>

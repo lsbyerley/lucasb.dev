@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper" class="relative z-10 flex flex-col items-center justify-start min-h-screen p-3 md:justify-center">
     <div id="main" class="flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full text-center rounded-lg bg-trans">
-      <div class="relative max-w-full py-10 py-12 inner">
+      <div class="relative max-w-full py-10 inner">
 
         <div class="mb-5 fadein image">
           <img src="~/src/assets/images/headshot.jpg" alt="" class="inline-block w-32 align-top rounded-full" />
