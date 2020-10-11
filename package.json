@@ -8,28 +8,34 @@
     "dev": "npm run client:dev",
     "client:prod": "parcel build index.html",
     "build": "npm run client:prod",
-    "prebuild": "rm -rf dist"
+    "prebuild": "rm -rf dist",
+    "format": "pretty-quick",
+    "format-all": "prettier --write src/",
+    "package:update": "ncu -u; npm install;"
   },
   "author": "lsbyerley@gmail.com",
   "dependencies": {
-    "axios": "^0.19.2",
-    "dayjs": "^1.8.29",
-    "dotenv": "^8.2.0",
-    "lodash": "^4.17.19",
-    "tailwindcss": "^1.4.6",
-    "vue": "^2.6.11",
-    "vue-analytics": "^5.22.1",
-    "vue-router": "^3.3.4"
+    "axios": "0.20.0",
+    "dayjs": "1.9.1",
+    "dotenv": "8.2.0",
+    "lodash": "4.17.20",
+    "tailwindcss": "1.8.13",
+    "vue": "2.6.12",
+    "vue-analytics": "5.22.1",
+    "vue-router": "3.4.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/plugin-transform-runtime": "^7.10.5",
-    "@vue/component-compiler-utils": "^3.1.2",
-    "autoprefixer": "^9.8.5",
-    "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.10",
-    "vue-hot-reload-api": "^2.3.4",
-    "vue-template-compiler": "^2.6.11"
+    "@babel/core": "7.11.6",
+    "@babel/plugin-transform-runtime": "7.11.5",
+    "@vue/component-compiler-utils": "3.2.0",
+    "npm-check-updates": "9.0.4",
+    "autoprefixer": "9.8.6",
+    "npm-run-all": "4.1.5",
+    "parcel-bundler": "1.12.4",
+    "prettier": "2.1.2",
+    "pretty-quick": "3.0.2",
+    "sass": "1.27.0",
+    "vue-hot-reload-api": "2.3.4",
+    "vue-template-compiler": "2.6.12"
   }
 }

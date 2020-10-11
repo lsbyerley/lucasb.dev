@@ -11,7 +11,7 @@
           <div class="w-full py-4 md:w-1/2">
             <p class="mb-2 font-medium text-gray-400">The Rules</p>
             <ul class="text-sm text-white">
-              <li>Games with a total of 49 or less</li>
+              <!--<li>Games with a total of 49 or less</li>-->
               <li>Home favorites of 7.5 - 9 (tease down)</li>
               <li>Home underdogs of 1 - 2.5 (tease up)</li>
               <li>Road underdogs of 1 - 2.5 (tease up)</li>
@@ -148,13 +148,13 @@ export default {
       }
     },
     showAwayAction(rules) {
-      return (rules.totalLTE49 && rules.roadDog1to25)
+      return (/* rules.totalLTE49 && */rules.roadDog1to25)
     },
     showAwayActionText(rules) {
       return 'Tease Up: 6 or 6.5pts'
     },
     showHomeAction(rules) {
-      return (rules.totalLTE49 && (rules.homeFave75to9 || rules.homeDog1to25))
+      return (/* rules.totalLTE49 && */(rules.homeFave75to9 || rules.homeDog1to25))
     },
     showHomeActionText(rules) {
       if (rules.homeFave75to9) {
