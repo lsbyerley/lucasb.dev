@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "package:update": "npm-check-updates -u; npm install"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.2.0",
-    "@tailwindcss/ui": "^0.7.2",
     "axios": "^0.21.0",
     "dayjs": "^1.9.6",
     "framer-motion": "^2.9.4",
@@ -17,11 +16,14 @@
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "swr": "^0.3.9",
-    "tailwindcss": "^1.9.6"
+    "swr": "^0.3.9"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.2.0",
+    "@tailwindcss/ui": "^0.7.2",
+    "npm-check-updates": "^10.2.1",
     "postcss-import": "^13.0.0",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.9.6"
   }
 }
