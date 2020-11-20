@@ -1,41 +1,27 @@
 {
-  "name": "lucasb.dev",
-  "version": "1.0.0",
-  "description": "static assets for lucasb.dev",
-  "main": "src/main.js",
+  "name": "nextjs.lucasb.dev",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "client:dev": "parcel index.html",
-    "dev": "npm run client:dev",
-    "client:prod": "parcel build index.html",
-    "build": "npm run client:prod",
-    "prebuild": "rm -rf dist",
-    "format": "pretty-quick",
-    "format-all": "prettier --write src/",
-    "package:update": "ncu -u; npm install;"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "author": "lsbyerley@gmail.com",
   "dependencies": {
-    "axios": "0.20.0",
-    "dayjs": "1.9.1",
-    "dotenv": "8.2.0",
-    "lodash": "4.17.20",
-    "tailwindcss": "1.8.13",
-    "vue": "2.6.12",
-    "vue-analytics": "5.22.1",
-    "vue-router": "3.4.6"
+    "@tailwindcss/typography": "^0.2.0",
+    "@tailwindcss/ui": "^0.7.2",
+    "axios": "^0.21.0",
+    "dayjs": "^1.9.6",
+    "framer-motion": "^2.9.4",
+    "lodash": "^4.17.20",
+    "next": "10.0.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "swr": "^0.3.9",
+    "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
-    "@babel/core": "7.11.6",
-    "@babel/plugin-transform-runtime": "7.11.5",
-    "@vue/component-compiler-utils": "3.2.0",
-    "npm-check-updates": "9.0.4",
-    "autoprefixer": "9.8.6",
-    "npm-run-all": "4.1.5",
-    "parcel-bundler": "1.12.4",
-    "prettier": "2.1.2",
-    "pretty-quick": "3.0.2",
-    "sass": "1.27.0",
-    "vue-hot-reload-api": "2.3.4",
-    "vue-template-compiler": "2.6.12"
+    "postcss-import": "^13.0.0",
+    "postcss-preset-env": "^6.7.0"
   }
 }
