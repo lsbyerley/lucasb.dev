@@ -1,0 +1,15 @@
+.navbar {
+  clip-path: circle(2% at 98% -15%);
+  transition: 200ms ease-in-out;
+  opacity: 0.9;
+}
+.navbar-open {
+  clip-path: circle(200% at 120% 0%);
+}
+
+/*
+ * TODO: fixed here breaks scrolling, and ::before isn't working
+*/
+.site-bg {
+  @apply fixed top-0 left-0 w-screen h-screen antialiased bg-scroll bg-top bg-no-repeat bg-cover bg-site-bg font-ez-light;
+}
