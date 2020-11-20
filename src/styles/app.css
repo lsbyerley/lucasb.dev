@@ -7,9 +7,7 @@
   clip-path: circle(200% at 120% 0%);
 }
 
-/*
- * TODO: fixed here breaks scrolling, and ::before isn't working
-*/
-.site-bg {
-  @apply fixed top-0 left-0 w-screen h-screen antialiased bg-scroll bg-top bg-no-repeat bg-cover bg-site-bg font-ez-light;
+.site-bg::before {
+  content: '';
+  @apply fixed top-0 left-0 block w-screen h-screen antialiased bg-scroll bg-top bg-no-repeat bg-cover pointer-events-none bg-site-bg font-ez-light;
 }
