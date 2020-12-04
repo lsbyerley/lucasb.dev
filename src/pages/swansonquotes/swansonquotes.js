@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import swansonQuotes from '@/util/swansonQuotes';
+import swansonQuotes from '@/lib/swansonQuotes';
 
 const SwansonQuote = () => {
   const { quotes } = swansonQuotes();

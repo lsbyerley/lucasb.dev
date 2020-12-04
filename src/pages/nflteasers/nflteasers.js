@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
-import useSWR from 'swr';
-import axios from 'axios';
+import React from 'react';
 import Head from 'next/head';
-import parseTeaserData from '@/util/parseTeaserData';
-
-const fetcher = (url) => axios.get(url).then((res) => res.data);
+import parseTeaserData from '@/lib/parseTeaserData';
+import useGetGames from '@/hooks/useGetGames';
 
 const NflTeasers = () => {
-  const { data, error } = useSWR(
-    'https://site.web.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?calendartype=blacklist&limit=100&showAirings=true&lang=en&region=us&contentorigin=espn',
-    fetcher
-  );
-
+  const { data, error } = useGetGames();
   const gamesError = error;
   const gamesLoading = !data;
   const { games, week, seasonType } = parseTeaserData(data);
