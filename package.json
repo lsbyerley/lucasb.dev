@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "package:update": "npm-check-updates -u; npm install"
+    "package:update:check": "npm-check-updates -u",
+    "package:update:install": "npm-check-updates -u; npm install"
   },
   "dependencies": {
     "axios": "0.21.0",

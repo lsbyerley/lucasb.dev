@@ -1,8 +1,11 @@
 import Head from 'next/head';
+// import useGetGithub from '@/hooks/useGetGithub';
 
 export default function Home() {
   const name = 'Lucas Byerley';
   const title = 'Front End Web Developer';
+  // const { data, error } = useGetGithub();
+  // console.log('LOG:', data, error);
 
   const social = [
     {

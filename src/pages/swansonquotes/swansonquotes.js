@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import swansonQuotes from '@/lib/swansonQuotes';
+import { motion } from 'framer-motion';
 
 const SwansonQuote = () => {
   const { quotes } = swansonQuotes();
@@ -40,9 +41,22 @@ const SwansonQuote = () => {
               </button>
               <div className="py-5 mx-auto prose-sm prose prose-custom sm:prose lg:prose-lg xl:prose-2xl">
                 <h3>Ron Swanson Knowledge</h3>
-                <blockquote>
-                  <p className="text-gray-400">{quote}</p>
-                </blockquote>
+                <motion.div
+                  initial="quoteInitial"
+                  animate="quoteAnimate"
+                  variants={{
+                    quoteInitial: {
+                      opacity: 0,
+                    },
+                    quoteAnimate: {
+                      opacity: 1,
+                    },
+                  }}
+                >
+                  <blockquote>
+                    <p className="text-gray-400">{quote}</p>
+                  </blockquote>
+                </motion.div>
                 <div className="w-32 h-40 m-auto">
                   <img className="cursor-pointer" src="/swanson.png" />
                 </div>
