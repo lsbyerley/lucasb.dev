@@ -130,11 +130,11 @@ const Header = ({ navIsOpen, onNavToggle }) => {
               </a>
             </Link>
           </motion.div>
-          <motion.div variants={linkVariants}>
+          {/* <motion.div variants={linkVariants}>
             <Link href="/recipes">
               <a className="block py-4 text-center text-gray-200 hover:text-gray-400">Recipes</a>
             </Link>
-          </motion.div>
+        </motion.div> */}
           <motion.div variants={linkVariants}>
             <a
               className="block py-4 text-center text-gray-200 hover:text-gray-400"

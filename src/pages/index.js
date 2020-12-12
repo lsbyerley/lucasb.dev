@@ -39,6 +39,7 @@ export default function Home() {
     <>
       <Head>
         <title>lucasb.dev</title>
+        <link rel="preload" as="image" href="/bg.jpg"></link>
       </Head>
       <div className="relative z-10 flex flex-col items-center justify-start min-h-screen px-4 pt-4 md:px-0 md:pt-6">
         <div className="flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full text-center rounded-lg bg-trans-bg">
