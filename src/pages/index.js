@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 // import useGetGithub from '@/hooks/useGetGithub';
 
 export default function Home() {
@@ -45,9 +46,11 @@ export default function Home() {
         <div className="flex items-center justify-center flex-grow-0 flex-shrink-0 max-w-full text-center rounded-lg bg-trans-bg">
           <div className="relative max-w-full py-10 w-96 inner">
             <div className="mb-5 image">
-              <img
+              <Image
                 src="/headshot.jpg"
-                alt=""
+                alt="picture of author"
+                width="128"
+                height="105"
                 className="inline-block w-32 align-top rounded-full"
               />
             </div>
