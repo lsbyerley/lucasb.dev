@@ -113,6 +113,16 @@ const Header = ({ navIsOpen, onNavToggle }) => {
               SteeleHoops
             </a>
           </motion.div>
+          <motion.div variants={linkVariants}>
+            <a
+              className="block py-4 text-center text-gray-200 hover:text-gray-400"
+              href="https://recipeazy.app/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Recipeazy
+            </a>
+          </motion.div>
         </div>
       </motion.nav>
     </nav>

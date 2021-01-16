@@ -10,7 +10,7 @@
     "package:update:install": "npm-check-updates -u; npm install"
   },
   "dependencies": {
-    "axios": "0.21.0",
+    "axios": "^0.21.1",
     "dayjs": "1.9.6",
     "framer-motion": "2.9.4",
     "lodash": "4.17.20",
