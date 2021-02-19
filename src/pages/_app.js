@@ -4,10 +4,19 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import '@/styles/tailwind.css';
 import '@/styles/app.css';
+import usePanelBear from '@/hooks/usePanelBear';
+const panelBearId = process.env.NEXT_PUBLIC_PANEL_BEAR_ID || '';
 
 function App({ Component, pageProps, router }) {
   let [navIsOpen, setNavIsOpen] = useState(false);
 
+  // PanelBear hook
+  usePanelBear(panelBearId, {
+    // remove comment to send events on localhost
+    // debug: true,
+  });
+
+  // nav open useEffect
   useEffect(() => {
     if (!navIsOpen) return;
 

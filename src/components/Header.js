@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import * as Panelbear from '@panelbear/panelbear-js';
 
 //TODO: nav open/close animation with framer-motion?
 // https://www.smashingmagazine.com/2020/10/introduction-to-framer-motion/
@@ -37,6 +38,12 @@ const linkVariants = {
 };
 
 const Header = ({ navIsOpen, onNavToggle }) => {
+
+  const trackExternal = ({ href, name }) => {
+    const trackName = `External${name}`;
+    Panelbear.track(trackName);
+  };
+
   return (
     <nav className="relative z-20 nav">
       <div className="flex items-center justify-between px-6 py-2 mx-auto">
@@ -106,9 +113,10 @@ const Header = ({ navIsOpen, onNavToggle }) => {
           <motion.div variants={linkVariants}>
             <a
               className="block py-4 text-center text-gray-200 hover:text-gray-400"
-              href="https://steelehoops.com/"
+              href="https://steelehoops.com"
               target="_blank"
               rel="noopener noreferrer nofollow"
+              onClick={() => trackExternal({ href: 'https://steelehoops.com', name: 'steelehoops' })}
             >
               SteeleHoops
             </a>
@@ -116,9 +124,10 @@ const Header = ({ navIsOpen, onNavToggle }) => {
           <motion.div variants={linkVariants}>
             <a
               className="block py-4 text-center text-gray-200 hover:text-gray-400"
-              href="https://recipeazy.app/"
+              href="https://recipeazy.app"
               target="_blank"
               rel="noopener noreferrer nofollow"
+              onClick={() => trackExternal({ href: 'https://recipeazy.app', name: 'recipeazy' })}
             >
               Recipeazy
             </a>
