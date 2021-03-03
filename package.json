@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "package:update:check": "npm-check-updates -u",
+    "package:update:check": "npm-check-updates",
     "package:update:install": "npm-check-updates -u; npm install"
   },
   "dependencies": {
