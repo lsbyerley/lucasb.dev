@@ -40,7 +40,7 @@ const SwansonQuote = () => {
                 More Swanson Knowledge
               </button>
               <div className="py-5 mx-auto prose-sm prose prose-custom sm:prose lg:prose-lg xl:prose-2xl">
-                <h3>Ron Swanson Knowledge</h3>
+                <h3 className="mb-8 text-3xl font-semibold">Ron Swanson Knowledge</h3>
                 <motion.div
                   initial="quoteInitial"
                   animate="quoteAnimate"
@@ -54,10 +54,10 @@ const SwansonQuote = () => {
                   }}
                 >
                   <blockquote>
-                    <p className="text-gray-400">{quote}</p>
+                    <p className="text-xl text-gray-400">{quote}</p>
                   </blockquote>
                 </motion.div>
-                <div className="w-32 h-40 m-auto">
+                <div className="w-32 h-40 m-auto mt-8">
                   <img className="cursor-pointer" src="/swanson.png" />
                 </div>
               </div>

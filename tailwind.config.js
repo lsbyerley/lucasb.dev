@@ -1,13 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: {
-    content: ['./src/**/*.js'],
-  },
+  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     typography: (theme) => ({
       default: {
@@ -17,7 +11,6 @@ module.exports = {
           },
         },
       },
-      // this doesn't work.. with prose-custom class; not sure why
       custom: {
         css: {
           h3: {
@@ -51,7 +44,6 @@ module.exports = {
     boxShadow: ['responsive', 'hover', 'focus', 'group-focus'],
   },
   plugins: [
-    require('@tailwindcss/ui'),
     require('@tailwindcss/typography'),
     function ({ addBase, addComponents, theme }) {
       addBase([
