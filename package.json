@@ -10,22 +10,23 @@
     "package:update:install": "npm-check-updates -u; npm install"
   },
   "dependencies": {
-    "@panelbear/panelbear-js": "^1.2.0",
-    "axios": "^0.21.1",
+    "@panelbear/panelbear-js": "1.2.0",
+    "axios": "0.21.1",
     "dayjs": "1.10.4",
-    "framer-motion": "3.10.3",
+    "framer-motion": "4.0.3",
     "lodash": "4.17.21",
-    "next": "10.0.8",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "swr": "0.5.3"
+    "next": "10.0.9",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "swr": "0.5.4"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.4.0",
+    "@tailwindcss/jit": "0.1.10",
+    "@tailwindcss/typography": "0.4.0",
     "autoprefixer": "10.2.5",
     "npm-check-updates": "11.3.0",
     "postcss": "8.2.8",
     "postcss-import": "14.0.0",
-    "tailwindcss": "^2.0.3"
+    "tailwindcss": "2.0.4"
   }
 }

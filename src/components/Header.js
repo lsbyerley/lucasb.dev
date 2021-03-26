@@ -38,7 +38,6 @@ const linkVariants = {
 };
 
 const Header = ({ navIsOpen, onNavToggle }) => {
-
   const trackExternal = ({ href, name }) => {
     const trackName = `External${name}`;
     Panelbear.track(trackName);
@@ -116,7 +115,9 @@ const Header = ({ navIsOpen, onNavToggle }) => {
               href="https://steelehoops.com"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              onClick={() => trackExternal({ href: 'https://steelehoops.com', name: 'steelehoops' })}
+              onClick={() =>
+                trackExternal({ href: 'https://steelehoops.com', name: 'steelehoops' })
+              }
             >
               SteeleHoops
             </a>

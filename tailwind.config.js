@@ -35,14 +35,6 @@ module.exports = {
       }),
     },
   },
-  variants: {
-    shadowOutline: ['focus'],
-    backgroundColor: ['disabled', 'hover'],
-    cursor: ['disabled'],
-    opacity: ['disabled', 'hover'],
-    textColor: ['disabled', 'hover'],
-    boxShadow: ['responsive', 'hover', 'focus', 'group-focus'],
-  },
   plugins: [
     require('@tailwindcss/typography'),
     function ({ addBase, addComponents, theme }) {
