@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 // import useGetGithub from '@/hooks/useGetGithub';
 
 export default function Home() {
-  const name = 'Lucas Byerley';
+  const name = 'Lucas B';
   const title = 'Front End Web Developer';
   // const { data, error } = useGetGithub();
   // console.log('LOG:', data, error);
