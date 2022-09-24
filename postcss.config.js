@@ -1,4 +1,9 @@
-// postcss.config.js
 module.exports = {
-  plugins: ['postcss-import', 'tailwindcss/nesting', 'tailwindcss', 'autoprefixer'],
-};
+  plugins: {
+    tailwindcss: {},
+    'postcss-focus-visible': {
+      replaceWith: '[data-focus-visible-added]',
+    },
+    autoprefixer: {},
+  },
+}
