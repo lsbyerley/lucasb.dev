@@ -16,7 +16,7 @@ import image6 from '@/images/photos/image-6.jpg';
 import image7 from '@/images/photos/image-7.jpg';
 import logoPlanetaria from '@/images/logos/planetaria.svg';
 import logoMickey from '@/images/logos/mickey.svg';
-import { generateRssFeed } from '@/lib/generateRssFeed';
+// import { generateRssFeed } from '@/lib/generateRssFeed';
 import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
 import { useAppContext } from '@/AppContext';
@@ -258,6 +258,7 @@ function Photos() {
 export default function Home({ articles }) {
   const { name } = useAppContext();
 
+  // https://github.com/vercel/next.js/discussions/38256
   const tagline = 'Software engineer, web3 advocate, sports enthusiast';
   const desc = `I’m ${
     name.split(' ')[0]

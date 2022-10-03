@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import ContextProvider from '@/providers/ContextProvider';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { usePanelbear } from '@panelbear/panelbear-nextjs';
 
 import '@/styles/tailwind.css';
 import 'focus-visible';
@@ -18,6 +19,12 @@ function usePrevious(value) {
 
 export default function App({ Component, pageProps, router }) {
   let previousPathname = usePrevious(router.pathname);
+
+  // PanelBear hook
+  usePanelbear(process.env.NEXT_PUBLIC_PANEL_BEAR_ID || '', {
+    // remove comment to send events on localhost
+    // debug: true,
+  });
 
   return (
     <ContextProvider>
