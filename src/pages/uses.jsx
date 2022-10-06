@@ -28,11 +28,12 @@ function Tool({ title, href, children }) {
 
 export default function Uses() {
   const { name } = useAppContext();
+  const pageTitle = `Uses - ${name}.dev`;
 
   return (
     <>
       <Head>
-        <title>Uses - {name}.dev</title>
+        <title>{pageTitle}</title>
         <meta
           name="description"
           content="Software and gadgets I use during my day to day"

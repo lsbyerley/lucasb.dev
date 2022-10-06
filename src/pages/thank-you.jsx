@@ -5,11 +5,12 @@ import { useAppContext } from '@/AppContext';
 
 export default function ThankYou() {
   const { name } = useAppContext();
+  const pageTitle = `You are suscribed - ${name}.dev`;
 
   return (
     <>
       <Head>
-        <title>You’re subscribed - {name}</title>
+        <title>{pageTitle}</title>
         <meta
           name="description"
           content="Thanks for subscribing to my newsletter."

@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: lucasb.dev
+Token: df6445f3b0bf722b02f5814aaa5add7382a491d18936f887392bec5a685703f9

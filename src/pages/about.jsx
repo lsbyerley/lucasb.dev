@@ -5,13 +5,8 @@ import clsx from 'clsx';
 import { useAppContext } from '@/AppContext';
 
 import { Container } from '@/components/Container';
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons';
-import portraitImage from '@/images/portrait.jpg';
+import { TwitterIcon, GitHubIcon } from '@/components/SocialIcons';
+import image8 from '@/images/photos/image-8.jpg';
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -40,11 +35,12 @@ function MailIcon(props) {
 
 export default function About() {
   const { name } = useAppContext();
+  const pageTitle = `About - ${name}.dev`;
 
   return (
     <>
       <Head>
-        <title>About - {name}.dev</title>
+        <title>{pageTitle}</title>
         <meta
           name="description"
           content={`I'm ${name}. I live in Charlotte, where I work remotely.`}
@@ -55,8 +51,8 @@ export default function About() {
           <div className="lg:pl-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
-                src={portraitImage}
-                alt=""
+                src={image8}
+                alt="Grand Prismatic - Yellowstone National Park"
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="object-cover aspect-square rotate-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800"
               />

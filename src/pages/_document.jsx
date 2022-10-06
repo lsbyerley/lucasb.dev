@@ -1,4 +1,4 @@
-import { Head, Html, Main, NextScript } from 'next/document'
+import { Head, Html, Main, NextScript } from 'next/document';
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -33,14 +33,14 @@ const modeScript = `
     disableTransitionsTemporarily()
     updateMode()
   }
-`
+`;
 
 export default function Document() {
   return (
     <Html className="h-full antialiased" lang="en">
       <Head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
-        <link
+        {/*<link
           rel="alternate"
           type="application/rss+xml"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`}
@@ -49,12 +49,12 @@ export default function Document() {
           rel="alternate"
           type="application/feed+json"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
-        />
+      />*/}
       </Head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+      <body className="flex flex-col h-full bg-zinc-50 dark:bg-black">
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

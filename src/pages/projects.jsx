@@ -61,11 +61,12 @@ function LinkIcon(props) {
 
 export default function Projects() {
   const { name } = useAppContext();
+  const pageTitle = `Projects - ${name}.dev`;
 
   return (
     <>
       <Head>
-        <title>Projects - {name}.dev</title>
+        <title>{pageTitle}</title>
         <meta name="description" content="Things I’ve made." />
       </Head>
       <SimpleLayout

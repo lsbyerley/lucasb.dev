@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import { getAllArticles } from '@/lib/getAllArticles';
+// import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
 import { useAppContext } from '@/AppContext';
 
@@ -35,13 +35,14 @@ function Article({ article }) {
   );
 }
 
-export default function ArticlesIndex({ articles }) {
+export default function ArticlesIndex({ articles = [] }) {
   const { name } = useAppContext();
+  const pageTitle = `Articles - ${name}.dev`;
 
   return (
     <>
       <Head>
-        <title>Articles - {name}.dev</title>
+        <title>{pageTitle}</title>
         <meta
           name="description"
           content="A small collection of thoughts I have about tech collected in chronological order."
@@ -64,10 +65,10 @@ export default function ArticlesIndex({ articles }) {
   );
 }
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   return {
     props: {
       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
     },
   };
-}
+} */

@@ -11,13 +11,13 @@ import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
-import image5 from '@/images/photos/image-5.jpg';
+// import image5 from '@/images/photos/image-5.jpg';
 import image6 from '@/images/photos/image-6.jpg';
-import image7 from '@/images/photos/image-7.jpg';
+// import image7 from '@/images/photos/image-7.jpg';
 import logoPlanetaria from '@/images/logos/planetaria.svg';
 import logoMickey from '@/images/logos/mickey.svg';
 // import { generateRssFeed } from '@/lib/generateRssFeed';
-import { getAllArticles } from '@/lib/getAllArticles';
+// import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
 import { useAppContext } from '@/AppContext';
 
@@ -138,18 +138,18 @@ function Resume() {
       company: 'Disney',
       title: 'Senior Software Engineer',
       logo: logoMickey,
-      start: '2018',
+      start: '2020',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
     },
     {
-      company: 'ESPN',
+      company: 'ESPN/Disney',
       title: 'Software Engineer I/II/III',
       logo: logoMickey,
       start: '2012',
-      end: '2018',
+      end: '2020',
     },
     {
       company: 'ESPN',
@@ -255,7 +255,7 @@ function Photos() {
   );
 }
 
-export default function Home({ articles }) {
+export default function Home({ articles = [] }) {
   const { name } = useAppContext();
 
   // https://github.com/vercel/next.js/discussions/38256
@@ -265,13 +265,12 @@ export default function Home({ articles }) {
   }, a software engineer based in Charlotte. A
             graduate from East Tennessee State University, I've been working in
             the tech industry for over a decade.`;
+  const pageTitle = `${name} - ${tagline}`;
 
   return (
     <>
       <Head>
-        <title>
-          {name} - {tagline}
-        </title>
+        <title>{pageTitle}</title>
         <meta name="description" content={desc} />
       </Head>
       <Container className="mt-9">
@@ -328,7 +327,7 @@ export default function Home({ articles }) {
   );
 }
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
     // await generateRssFeed();
   }
@@ -340,4 +339,4 @@ export async function getStaticProps() {
         .map(({ component, ...meta }) => meta),
     },
   };
-}
+} */
