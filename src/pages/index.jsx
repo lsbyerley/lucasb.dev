@@ -17,7 +17,7 @@ import image6 from '@/images/photos/image-6.jpg';
 import logoPlanetaria from '@/images/logos/planetaria.svg';
 import logoMickey from '@/images/logos/mickey.svg';
 // import { generateRssFeed } from '@/lib/generateRssFeed';
-// import { getAllArticles } from '@/lib/getAllArticles';
+import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
 import { useAppContext } from '@/AppContext';
 
@@ -309,14 +309,11 @@ export default function Home({ articles = [] }) {
       <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="grid max-w-xl grid-cols-1 mx-auto gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <p className="text-gray-600 dark:text-gray-200">
-            blog posts coming soon..
-          </p>
-          {/*<div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-16">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
-            </div>*/}
+          </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             {/*Newsletter />*/}
             <Resume />
@@ -327,7 +324,7 @@ export default function Home({ articles = [] }) {
   );
 }
 
-/* export async function getStaticProps() {
+export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
     // await generateRssFeed();
   }
@@ -339,4 +336,4 @@ export default function Home({ articles = [] }) {
         .map(({ component, ...meta }) => meta),
     },
   };
-} */
+}

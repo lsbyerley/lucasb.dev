@@ -1,0 +1,74 @@
+import { ArticleLayout } from '@/components/ArticleLayout';
+
+export const meta = {
+  author: 'Lucas Byerley',
+  date: '2022-10-14',
+  title: 'Creating a Local Storage Hook',
+  description:
+    'Example code for building a local storage hook to use in your application',
+};
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+Here is a simple local storage hook can you use in your applications to store, fetch, and delete items from the browsers local or session storage.
+
+Note: If using this in a Next.js application or SSR (Server-Side Rendering) in another application, the `isBrowser` check is important. The window object will not exist on the server, so you must make sure this hook only runs on the client.
+
+```js
+const useLocalStorage = () => {
+  const storageType = (type) => `${type ?? 'session'}Storage`;
+
+  const isBrowser = (() => typeof window !== 'undefined')();
+
+  const getItem = (key, type) => {
+    return isBrowser ? window[storageType(type)][key] : '';
+  };
+
+  const setItem = (key, value, type) => {
+    if (isBrowser) {
+      window[storageType(type)].setItem(key, value);
+      return true;
+    }
+
+    return false;
+  };
+
+  const removeItem = (key, type) => {
+    if (isBrowser) {
+      window[storageType(type)].removeItem(key);
+      return true;
+    }
+
+    return false;
+  };
+
+  return {
+    getItem,
+    setItem,
+    removeItem,
+  };
+};
+
+export default useLocalStorage;
+```
+
+Using the hook in your application:
+
+```js
+//import the hook
+import useLocalStorage from '../path-to-file/useLocalStorage';
+
+// initiate the hook
+const { getItem, setItem, removeItem } = useLocalStorage();
+
+// fetching an item in local storage
+const localStorageItem = getItem('itemname', 'local');
+
+// setting an item in local storage
+setItem('itemname', 'local');
+
+// removing an item in local storage
+removeItem('itemname', 'local');
+```
+
+Note: You can manage a `session` storage item by replacing `local` with the `session` type in the example above
