@@ -3,49 +3,52 @@ import Head from 'next/head';
 
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import logoAnimaginary from '@/images/logos/animaginary.svg';
-import logoCosmos from '@/images/logos/cosmos.svg';
-import logoHelioStream from '@/images/logos/helio-stream.svg';
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg';
-import logoPlanetaria from '@/images/logos/planetaria.svg';
+import logoBolt from '@/images/logos/bolt.svg';
+import logoWallet from '@/images/logos/wallet.svg';
+import logoGlobe from '@/images/logos/globe.svg';
+import logoMoney from '@/images/logos/money.svg';
 import { useAppContext } from '@/AppContext';
 
 const projects = [
-  /*{
-    name: 'Planetaria',
+  {
+    name: 'Wallet Dashboard',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'A web3 wallet dashboard. Connect your wallet and view your nfts and other stats. Built with NextJs, TailwindCSS, and wagmi',
+    link: {
+      href: 'https://github.com/lsbyerley/wallet-dashboard',
+      label: 'wallet-dashboard',
+    },
+    logo: logoWallet,
   },
   {
-    name: 'Animaginary',
+    name: 'Bid The Field',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'A side project for my friends and I to setup an auction and bid on sports teams or players. Built with NextJs, TailwindCSS, and Supabase',
+    link: {
+      href: 'https://github.com/lsbyerley/bid-the-field',
+      label: 'bid-the-field',
+    },
+    logo: logoMoney,
   },
   {
-    name: 'HelioStream',
+    name: 'RBI Tri-Cities',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      'A website I made for a friend of mine who started a baseball and softball training facility. Built with NuxtJs and TailwindCSS',
+    link: {
+      href: 'https://rbitricities.com/',
+      label: 'rbi-tricities',
+    },
+    logo: logoBolt,
   },
   {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
+    name: 'My Personal Website',
+    description: 'My personal website built with NextJs and TailwindCSS',
+    link: {
+      href: 'https://github.com/lsbyerley/lucasb.dev',
+      label: 'lucasb-dev',
+    },
+    logo: logoGlobe,
   },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
-  },*/
 ];
 
 function LinkIcon(props) {
@@ -71,9 +74,8 @@ export default function Projects() {
       </Head>
       <SimpleLayout
         title="Things I’ve made."
-        intro="I've worked on a variety of small side projects during my career."
+        intro="I like to hack around on various small side projects. Here are a few"
       >
-        <p className="text-gray-600 dark:text-gray-200">project list soon..</p>
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
@@ -89,7 +91,13 @@ export default function Projects() {
                 />
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Link href={project.link.href}>{project.name}</Card.Link>
+                <Card.Link
+                  href={project.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                </Card.Link>
               </h2>
               <Card.Description>{project.description}</Card.Description>
               <p className="relative z-10 flex mt-6 text-sm font-medium transition text-zinc-400 group-hover:text-teal-500 dark:text-zinc-200">

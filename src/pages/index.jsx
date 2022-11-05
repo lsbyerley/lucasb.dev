@@ -11,10 +11,11 @@ import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
-// import image5 from '@/images/photos/image-5.jpg';
+import image5 from '@/images/photos/image-5.jpg';
 import image6 from '@/images/photos/image-6.jpg';
-// import image7 from '@/images/photos/image-7.jpg';
-import logoPlanetaria from '@/images/logos/planetaria.svg';
+import image7 from '@/images/photos/image-7.jpg';
+import image8 from '@/images/photos/image-8.jpg';
+import logoBolt from '@/images/logos/bolt.svg';
 import logoMickey from '@/images/logos/mickey.svg';
 // import { generateRssFeed } from '@/lib/generateRssFeed';
 import { getAllArticles } from '@/lib/getAllArticles';
@@ -161,14 +162,14 @@ function Resume() {
     {
       company: 'Bays Media',
       title: 'Web Technician',
-      logo: logoPlanetaria,
+      logo: logoBolt,
       start: '2009',
       end: '2011',
     },
     {
       company: 'ETSU - Emerging Tech Center',
       title: 'Intern',
-      logo: logoPlanetaria,
+      logo: logoBolt,
       start: '2008',
       end: '2010',
     },
@@ -222,6 +223,17 @@ function Resume() {
   );
 }
 
+function randomize(arr) {
+  var i, j, tmp;
+  for (i = arr.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+  return arr;
+}
+
 function Photos() {
   let rotations = [
     'rotate-2',
@@ -231,10 +243,23 @@ function Photos() {
     '-rotate-2',
   ];
 
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+  ];
+
+  let shuffled = randomize(images);
+
   return (
     <div className="mt-16 sm:mt-20">
       <div className="flex justify-center gap-5 py-4 -my-4 overflow-hidden sm:gap-8">
-        {[image1, image2, image3, image4, image6].map((image, imageIndex) => (
+        {shuffled.slice(0, 5).map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
