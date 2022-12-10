@@ -234,7 +234,7 @@ function randomize(arr) {
   return arr;
 }
 
-function Photos() {
+function Photos({ shuffledImages }) {
   let rotations = [
     'rotate-2',
     '-rotate-2',
@@ -243,23 +243,10 @@ function Photos() {
     '-rotate-2',
   ];
 
-  const images = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image6,
-    image7,
-    image8,
-  ];
-
-  let shuffled = randomize(images);
-
   return (
     <div className="mt-16 sm:mt-20">
       <div className="flex justify-center gap-5 py-4 -my-4 overflow-hidden sm:gap-8">
-        {shuffled.slice(0, 5).map((image, imageIndex) => (
+        {shuffledImages.slice(0, 5).map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
@@ -280,7 +267,7 @@ function Photos() {
   );
 }
 
-export default function Home({ articles = [] }) {
+export default function Home({ articles = [], shuffledImages = [] }) {
   const { name } = useAppContext();
 
   // https://github.com/vercel/next.js/discussions/38256
@@ -331,7 +318,7 @@ export default function Home({ articles = [] }) {
           </div>
         </div>
       </Container>
-      <Photos />
+      <Photos shuffledImages={shuffledImages} />
       <Container className="mt-24 md:mt-28">
         <div className="grid max-w-xl grid-cols-1 mx-auto gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
@@ -354,11 +341,26 @@ export async function getStaticProps() {
     // await generateRssFeed();
   }
 
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+  ];
+
+  // prevent SSR mismatch and shuffle once here
+  let shuffledImages = randomize(images);
+
   return {
     props: {
       articles: (await getAllArticles())
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
+      shuffledImages,
     },
   };
 }
