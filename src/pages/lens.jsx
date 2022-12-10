@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { recommendedProfiles } from '@/lensapi/queries';
 import ProfileCard from '@/components/ProfileCard';
+import Placeholders from '@/components/Placeholders';
 import { useAccount, useDisconnect, useNetwork, useSwitchNetwork } from 'wagmi';
 import useIsMounted from '@/hooks/useIsMounted';
 
@@ -14,7 +15,12 @@ import useIsMounted from '@/hooks/useIsMounted';
 const RecProfiles = () => {
   const { loading, error, data } = useQuery(recommendedProfiles);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Placeholders number={12} />
+      </div>
+    );
   if (error) return <p>Error : {error.message}</p>;
 
   console.log('LOG: data', data);

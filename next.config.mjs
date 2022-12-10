@@ -24,10 +24,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**',
       },
-      {
-        protocol: 'ipfs',
-        hostname: '**',
-      },
       // { protocol: 'https', hostname: '**.placeholder.com', pathname: '/**' },
       // { protocol: 'https', hostname: '**.ens.domains', pathname: '/**' },
       // { protocol: 'https', hostname: '**.cloudinary.com', pathname: '/**' },
