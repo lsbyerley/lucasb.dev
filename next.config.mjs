@@ -4,7 +4,7 @@ import rehypePrism from '@mapbox/rehype-prism';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['jsx', 'js', 'tsx', 'mdx'],
+  pageExtensions: ['jsx', 'js', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
@@ -18,7 +18,7 @@ const nextConfig = {
   },
   images: {
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',

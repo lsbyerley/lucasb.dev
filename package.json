@@ -10,34 +10,34 @@
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
-    "@apollo/client": "^3.7.1",
-    "@headlessui/react": "1.7.4",
+    "@apollo/client": "3.7.2",
+    "@headlessui/react": "1.7.7",
     "@heroicons/react": "2.0.13",
     "@mapbox/rehype-prism": "0.8.0",
-    "@mdx-js/loader": "2.1.5",
-    "@next/mdx": "13.0.5",
+    "@mdx-js/loader": "2.2.1",
+    "@next/mdx": "13.0.7",
     "@panelbear/panelbear-nextjs": "1.0.5",
-    "@rainbow-me/rainbowkit": "^0.8.0",
+    "@rainbow-me/rainbowkit": "0.8.1",
     "@tailwindcss/typography": "0.5.8",
     "autoprefixer": "10.4.13",
     "clsx": "1.2.1",
-    "ethers": "^5.7.2",
+    "ethers": "5.7.2",
     "fast-glob": "3.2.12",
     "feed": "4.2.2",
     "focus-visible": "5.2.0",
-    "graphql": "^16.6.0",
-    "next": "12.3.1",
+    "graphql": "16.6.0",
+    "next": "13.0.7",
     "postcss-focus-visible": "7.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "remark-gfm": "3.0.1",
     "tailwindcss": "3.2.4",
-    "wagmi": "^0.8.10"
+    "wagmi": "0.9.4"
   },
   "devDependencies": {
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
-    "prettier": "2.8.0",
-    "prettier-plugin-tailwindcss": "0.2.0"
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.0.7",
+    "prettier": "2.8.1",
+    "prettier-plugin-tailwindcss": "0.2.1"
   }
 }

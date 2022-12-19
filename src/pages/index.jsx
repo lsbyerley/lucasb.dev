@@ -1,4 +1,4 @@
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -246,7 +246,7 @@ function Photos({ shuffledImages }) {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="flex justify-center gap-5 py-4 -my-4 overflow-hidden sm:gap-8">
-        {shuffledImages.slice(0, 5).map((image, imageIndex) => (
+        {shuffledImages.map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
@@ -353,7 +353,7 @@ export async function getStaticProps() {
   ];
 
   // prevent SSR mismatch and shuffle once here
-  let shuffledImages = randomize(images);
+  let shuffledImages = randomize(images).slice(0, 5);
 
   return {
     props: {

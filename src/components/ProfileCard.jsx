@@ -32,6 +32,8 @@ const ProfileCard = ({ profile }) => {
   const { data: signer } = useSigner();
   const { address } = useAccount();
 
+  // TODO: Find fix for profile images in next/image
+
   return (
     <li
       key={profile.id}
@@ -50,10 +52,12 @@ const ProfileCard = ({ profile }) => {
           <p className="mt-1 text-sm text-gray-500 truncate">{profile.bio}</p>
         </div>
         <Image
-          src={profile.picture?.original?.url || 'https://place-hold.it/40x40'}
+          src={
+            /*profile.picture?.original?.url || */ 'https://place-hold.it/40x40'
+          }
           className="flex-shrink-0 w-10 h-10 bg-gray-300 rounded-full"
-          width="40px"
-          height="40px"
+          width={40}
+          height={40}
         />
       </div>
       <div>
