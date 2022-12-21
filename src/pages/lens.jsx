@@ -32,8 +32,6 @@ const RecProfiles = () => {
     );
   if (error) return <p>Error : {error.message}</p>;
 
-  console.log('LOG: data', data);
-
   return (
     <ul
       role="list"
@@ -50,7 +48,7 @@ const Lens = () => {
   const isMounted = useIsMounted();
   const { name } = useAppContext();
   const { chain } = useNetwork();
-  const { switchNetwork } = useSwitchNetwork();
+  const { switchNetworkAsync } = useSwitchNetwork();
   const { address } = useAccount();
   const { disconnectAsync } = useDisconnect();
   const { data: ensName } = useEnsName({
@@ -64,7 +62,7 @@ const Lens = () => {
   };
 
   const handleSwitchNetwork = async () => {
-    switchNetwork(polygonChainId);
+    await switchNetworkAsync(polygonChainId);
   };
 
   if (!isMounted) return null;
