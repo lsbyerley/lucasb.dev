@@ -1,4 +1,4 @@
-import { ethers, utils } from 'ethers';
+import { ethers } from 'ethers';
 
 export const trimString = (string, length) => {
   if (!string) return null;

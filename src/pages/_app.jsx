@@ -6,7 +6,7 @@ import { Header } from '@/components/Header';
 import { usePanelbear } from '@panelbear/panelbear-nextjs';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { polygon } from 'wagmi/chains';
+import { mainnet, polygon } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
@@ -15,7 +15,7 @@ import '@/styles/tailwind.css';
 import 'focus-visible';
 
 const { chains, provider } = configureChains(
-  [polygon],
+  [mainnet, polygon],
   [
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
     publicProvider(),

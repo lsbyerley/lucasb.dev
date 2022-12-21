@@ -7,10 +7,19 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { recommendedProfiles } from '@/lensapi/queries';
 import ProfileCard from '@/components/ProfileCard';
 import Placeholders from '@/components/Placeholders';
-import { useAccount, useDisconnect, useNetwork, useSwitchNetwork } from 'wagmi';
+import {
+  useAccount,
+  useDisconnect,
+  useNetwork,
+  useSwitchNetwork,
+  useEnsName,
+} from 'wagmi';
 import useIsMounted from '@/hooks/useIsMounted';
+import { trimString } from '@/lib/utils';
 
 // https://docs.lens.xyz/docs/get-profiles
+
+const polygonChainId = 137;
 
 const RecProfiles = () => {
   const { loading, error, data } = useQuery(recommendedProfiles);
@@ -44,6 +53,10 @@ const Lens = () => {
   const { switchNetwork } = useSwitchNetwork();
   const { address } = useAccount();
   const { disconnectAsync } = useDisconnect();
+  const { data: ensName } = useEnsName({
+    address,
+    chainId: 1,
+  });
   const pageTitle = `Lens Social - ${name}.dev`;
 
   const disconnectWallet = async () => {
@@ -51,7 +64,7 @@ const Lens = () => {
   };
 
   const handleSwitchNetwork = async () => {
-    switchNetwork(137);
+    switchNetwork(polygonChainId);
   };
 
   if (!isMounted) return null;
@@ -74,22 +87,32 @@ const Lens = () => {
               <ConnectButton />
             </div>
           )}
-          {address && chain?.id !== 137 && (
-            <div>
+          {address && chain?.id !== polygonChainId && (
+            <div className="shadow">
               <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
                 Please switch to Polygon
               </p>
-              <button onClick={() => handleSwitchNetwork()}>
+              <button
+                className="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                onClick={() => handleSwitchNetwork()}
+              >
                 Switch Network
               </button>
             </div>
           )}
-          {address && chain?.id === 137 && (
-            <div className="py-6">
-              <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                Connected As: {address}
-              </p>
-              <button onClick={() => disconnectWallet()}>Disconnect</button>
+          {address && chain?.id === polygonChainId && (
+            <div className="">
+              <div className="flex items-center justify-between p-2 mb-6 bg-white rounded shadow">
+                <p className="text-base text-zinc-700 dark:text-zinc-500">
+                  Connected As: {trimString(address, 8)} ({ensName || ''})
+                </p>
+                <button
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-zinc-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-zinc-500"
+                  onClick={() => disconnectWallet()}
+                >
+                  Disconnect
+                </button>
+              </div>
               <RecProfiles />
             </div>
           )}

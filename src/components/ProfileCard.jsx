@@ -55,6 +55,7 @@ const ProfileCard = ({ profile }) => {
           src={
             /*profile.picture?.original?.url || */ 'https://place-hold.it/40x40'
           }
+          alt={`Profile Image for ${profile.handle}`}
           className="flex-shrink-0 w-10 h-10 bg-gray-300 rounded-full"
           width={40}
           height={40}
