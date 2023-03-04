@@ -11,7 +11,7 @@
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@apollo/client": "3.7.9",
-    "@headlessui/react": "1.7.12",
+    "@headlessui/react": "1.7.13",
     "@heroicons/react": "2.0.16",
     "@lens-protocol/react": "0.5.0",
     "@lens-protocol/wagmi": "0.5.0",
@@ -19,7 +19,7 @@
     "@mdx-js/loader": "2.3.0",
     "@next/mdx": "13.2.3",
     "@panelbear/panelbear-nextjs": "2.0.1",
-    "@rainbow-me/rainbowkit": "0.11.0",
+    "@rainbow-me/rainbowkit": "0.11.1",
     "@tailwindcss/typography": "0.5.9",
     "autoprefixer": "10.4.13",
     "clsx": "1.2.1",
@@ -41,7 +41,7 @@
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "prettier": "2.8.4",
-    "prettier-plugin-tailwindcss": "0.2.3",
+    "prettier-plugin-tailwindcss": "0.2.4",
     "typescript": "4.9.5"
   }
 }
