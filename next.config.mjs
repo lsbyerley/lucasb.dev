@@ -7,6 +7,7 @@ const nextConfig = {
   pageExtensions: ['jsx', 'js', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
+  transpilePackages: ['@lens-protocol'],
   experimental: {
     newNextLinkBehavior: true,
     scrollRestoration: true,

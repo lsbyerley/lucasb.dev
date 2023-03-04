@@ -3,15 +3,6 @@ export const LENS_HUB_CONTRACT_ADDRESS =
 
 export {
   recommendedProfiles,
-  getProfiles,
-  getDefaultProfile,
-  getPublications,
-  searchProfiles,
-  searchPublications,
-  explorePublications,
-  doesFollow,
-  getChallenge,
-  timeline,
 } from './queries';
 
 export {
