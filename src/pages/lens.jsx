@@ -1,41 +1,46 @@
-// import { useEffect } from 'react';
 import Head from 'next/head';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { useAppContext } from '@/AppContext';
-// import { useQuery } from '@apollo/client';
-import LoginButton from '@/components/lens/LoginButton';
-// import { recommendedProfiles } from '@/lensapi/queries';
+import { LoginButton, WhenLoggedInWithProfile } from '@/components/lens';
 import ProfileCard from '@/components/ProfileCard';
 import Placeholders from '@/components/Placeholders';
-import {
-  useAccount,
-  useDisconnect,
-  useNetwork,
-  useSwitchNetwork,
-  useEnsName,
-} from 'wagmi';
 import useIsMounted from '@/hooks/useIsMounted';
-import { trimString } from '@/lib/utils';
-import {
-  useActiveProfile,
-  useExploreProfiles,
-  useProfileFollowing,
-} from '@lens-protocol/react';
-
-const polygonChainId = 137;
+import { useExploreProfiles } from '@lens-protocol/react-web';
+import { useNetwork, useSwitchNetwork } from 'wagmi';
+import { polygon, polygonMumbai } from 'wagmi/chains';
 
 // https://docs.lens.xyz/docs/get-profiles
 // https://docs.lens.xyz/docs/use-profile
 // https://github.com/lens-protocol/lens-sdk/blob/main/examples/nextjs/pages/index.tsx
 
+const RecProfiles = () => {
+  const { loading, error, data } = useExploreProfiles();
+
+  if (loading)
+    return (
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Placeholders number={12} />
+      </div>
+    );
+  if (error) return <p>Error : {error.message}</p>;
+
+  return (
+    <ul
+      role="list"
+      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {data?.map((profile) => {
+        return <ProfileCard key={profile.id} profile={profile} />;
+      })}
+    </ul>
+  );
+};
+
 const Lens = () => {
   const { name } = useAppContext();
   const isMounted = useIsMounted();
-  const { address, isConnected } = useAccount();
-  const { data: profile, error: profileError } = useActiveProfile();
-
-  console.log('LOG: test', isConnected, address, profile, profileError);
-
+  const { chain } = useNetwork();
+  const { switchNetwork } = useSwitchNetwork();
   const pageTitle = `Lens Social - ${name}.dev`;
 
   if (!isMounted) return null;
@@ -53,13 +58,29 @@ const Lens = () => {
         intro="Connect your wallet to view recommended Lens handles to follow"
       >
         <LoginButton />
-        <div className="space-y-20">
-          {profile && (
-            <p>
-              Welcome <b>@{profile.handle}</b>
+        {chain.id !== (polygon.id || polygonMumbai.id) && (
+          <>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              Please switch to Polygon
             </p>
-          )}
-        </div>
+            <button
+              className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              onClick={() => switchNetwork(polygon.id)}
+            >
+              Switch Network
+            </button>
+          </>
+        )}
+        <WhenLoggedInWithProfile>
+          {({ profile }) => {
+            return (
+              <div>
+                <div>{`Welcome @${profile?.handle || 'noprofile'}`}</div>
+                <RecProfiles />
+              </div>
+            );
+          }}
+        </WhenLoggedInWithProfile>
       </SimpleLayout>
     </>
   );

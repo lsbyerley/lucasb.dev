@@ -15,9 +15,9 @@ import {
   LensConfig,
   LensProvider,
   sources,
+  development,
   staging,
-} from '@lens-protocol/react';
-import { localStorage } from '@lens-protocol/react/web';
+} from '@lens-protocol/react-web';
 import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
 
 import '@rainbow-me/rainbowkit/styles.css';
@@ -27,8 +27,8 @@ import 'focus-visible';
 const lensConfig = {
   bindings: wagmiBindings(),
   environment: staging,
-  // sources: [sources.lenster, sources.orb, appId('any-other-app-id')],
-  storage: localStorage(),
+  sources: [sources.lenster],
+  // storage: localStorage(),
 };
 
 const { chains, provider } = configureChains(

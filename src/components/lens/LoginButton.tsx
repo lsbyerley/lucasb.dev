@@ -1,25 +1,15 @@
-import {
-  useWalletLogin,
-  useWalletLogout,
-  useActiveProfile,
-} from '@lens-protocol/react';
+import { useWalletLogin, useWalletLogout } from '@lens-protocol/react-web';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 
-// import { WhenLoggedInWithProfile, WhenLoggedOut } from './auth';
+import { WhenLoggedInWithProfile } from './WhenLoggedInWithProfile';
+import { WhenLoggedOut } from './WhenLoggedOut';
 
-const LoginButton = () => {
-  const {
-    execute: login,
-    error: loginError,
-    isPending: isLoginPending,
-  } = useWalletLogin();
+export function LoginButton({ handle }: { handle?: string }) {
+  const { execute: login, error: loginError, isPending: isLoginPending } = useWalletLogin();
   const { execute: logout, isPending: isLogoutPending } = useWalletLogout();
-  const { data: profile, error: profileError } = useActiveProfile();
-
-  console.log('LOG: ', profile);
 
   const { isConnected } = useAccount();
   const { disconnectAsync } = useDisconnect();
@@ -37,7 +27,7 @@ const LoginButton = () => {
 
     if (connector instanceof InjectedConnector) {
       const signer = await connector.getSigner();
-      await login(signer);
+      await login(signer, handle);
     }
   };
 
@@ -51,27 +41,20 @@ const LoginButton = () => {
   }, [loginError]);
 
   return (
-    <div className="flex items-center justify-center">
-      {isConnected && (
-        <button
-          className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          onClick={onLogoutClick}
-          disabled={isLogoutPending}
-        >
-          <strong>Log out</strong>
-        </button>
-      )}
-      {!isConnected && (
-        <button
-          className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          onClick={onLoginClick}
-          disabled={isLoginPending}
-        >
+    <>
+      <WhenLoggedInWithProfile>
+        {() => (
+          <button onClick={onLogoutClick} disabled={isLogoutPending}>
+            <strong>Log out</strong>
+          </button>
+        )}
+      </WhenLoggedInWithProfile>
+
+      <WhenLoggedOut>
+        <button onClick={onLoginClick} disabled={isLoginPending}>
           <strong>Log in</strong>
         </button>
-      )}
-    </div>
+      </WhenLoggedOut>
+    </>
   );
-};
-
-export default LoginButton;
+}
