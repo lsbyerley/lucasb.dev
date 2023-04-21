@@ -1,28 +1,23 @@
-// import { useEffect } from 'react';
 import Head from 'next/head';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { useAppContext } from '@/AppContext';
-import { useQuery } from '@apollo/client';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { recommendedProfiles } from '@/lensapi/queries';
+import { LoginButton, WhenLoggedInWithProfile } from '@/components/lens';
+import NetworkInfoSwitch from '@/components/lens/NetworkInfoSwitch';
 import ProfileCard from '@/components/ProfileCard';
 import Placeholders from '@/components/Placeholders';
-import {
-  useAccount,
-  useDisconnect,
-  useNetwork,
-  useSwitchNetwork,
-  useEnsName,
-} from 'wagmi';
 import useIsMounted from '@/hooks/useIsMounted';
-import { trimString } from '@/lib/utils';
+import { useExploreProfiles } from '@lens-protocol/react-web';
+import { polygon, polygonMumbai } from 'wagmi/chains';
 
 // https://docs.lens.xyz/docs/get-profiles
+// https://docs.lens.xyz/docs/use-profile
+// https://github.com/lens-protocol/lens-sdk/blob/main/examples/nextjs/pages/index.tsx
 
-const polygonChainId = 137;
+const lensEnvIsProd =
+  process.env.NEXT_PUBLIC_LENS_ENV === 'production' ? true : false;
 
 const RecProfiles = () => {
-  const { loading, error, data } = useQuery(recommendedProfiles);
+  const { loading, error, data } = useExploreProfiles();
 
   if (loading)
     return (
@@ -37,7 +32,7 @@ const RecProfiles = () => {
       role="list"
       className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
     >
-      {data?.recommendedProfiles?.map((profile) => {
+      {data?.map((profile) => {
         return <ProfileCard key={profile.id} profile={profile} />;
       })}
     </ul>
@@ -45,25 +40,9 @@ const RecProfiles = () => {
 };
 
 const Lens = () => {
-  const isMounted = useIsMounted();
   const { name } = useAppContext();
-  const { chain } = useNetwork();
-  const { switchNetworkAsync } = useSwitchNetwork();
-  const { address } = useAccount();
-  const { disconnectAsync } = useDisconnect();
-  const { data: ensName } = useEnsName({
-    address,
-    chainId: 1,
-  });
+  const isMounted = useIsMounted();
   const pageTitle = `Lens Social - ${name}.dev`;
-
-  const disconnectWallet = async () => {
-    await disconnectAsync();
-  };
-
-  const handleSwitchNetwork = async () => {
-    await switchNetworkAsync(polygonChainId);
-  };
 
   if (!isMounted) return null;
   return (
@@ -74,47 +53,33 @@ const Lens = () => {
           name="description"
           content="Connect your wallet to view recommended Lens handles to follow"
         />
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>"
+        />
       </Head>
       <SimpleLayout
         title="Lens Protocol - the web3 social platform"
         intro="Connect your wallet to view recommended Lens handles to follow"
       >
-        <div className="space-y-20">
-          {!address && (
-            <div className="py-6">
-              <ConnectButton />
-            </div>
-          )}
-          {address && chain?.id !== polygonChainId && (
-            <div className="shadow">
-              <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                Please switch to Polygon
-              </p>
-              <button
-                className="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                onClick={() => handleSwitchNetwork()}
-              >
-                Switch Network
-              </button>
-            </div>
-          )}
-          {address && chain?.id === polygonChainId && (
-            <div className="">
-              <div className="flex items-center justify-between p-2 mb-6 bg-white rounded shadow">
-                <p className="text-base text-zinc-700 dark:text-zinc-500">
-                  Connected As: {trimString(address, 8)} ({ensName || ''})
-                </p>
-                <button
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-zinc-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-zinc-500"
-                  onClick={() => disconnectWallet()}
-                >
-                  Disconnect
-                </button>
+        <LoginButton />
+        <NetworkInfoSwitch />
+        <WhenLoggedInWithProfile>
+          {({ profile, chain }) => {
+            return (
+              <div>
+                <div className="my-4 text-white">{`Welcome @${
+                  profile?.handle || 'noprofile'
+                }`}</div>
+
+                {(lensEnvIsProd && chain?.id === polygon.id) ||
+                  (!lensEnvIsProd && chain?.id === polygonMumbai?.id && (
+                    <RecProfiles />
+                  ))}
               </div>
-              <RecProfiles />
-            </div>
-          )}
-        </div>
+            );
+          }}
+        </WhenLoggedInWithProfile>
       </SimpleLayout>
     </>
   );
