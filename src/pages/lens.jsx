@@ -44,6 +44,14 @@ const Lens = () => {
   const isMounted = useIsMounted();
   const pageTitle = `Lens Social - ${name}.dev`;
 
+  const shouldShowProfiles = (chain) => {
+    // Prod and network is polygon or Dev and network is mumbai
+    return (
+      (lensEnvIsProd && chain?.id === polygon.id) ||
+      (!lensEnvIsProd && chain?.id === polygonMumbai?.id)
+    );
+  };
+
   if (!isMounted) return null;
   return (
     <>
@@ -72,10 +80,7 @@ const Lens = () => {
                   profile?.handle || 'noprofile'
                 }`}</div>
 
-                {(lensEnvIsProd && chain?.id === polygon.id) ||
-                  (!lensEnvIsProd && chain?.id === polygonMumbai?.id && (
-                    <RecProfiles />
-                  ))}
+                {shouldShowProfiles(chain) && <RecProfiles />}
               </div>
             );
           }}
