@@ -2,16 +2,19 @@ import Head from 'next/head';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { useAppContext } from '@/AppContext';
 import { LoginButton, WhenLoggedInWithProfile } from '@/components/lens';
+import NetworkInfoSwitch from '@/components/lens/NetworkInfoSwitch';
 import ProfileCard from '@/components/ProfileCard';
 import Placeholders from '@/components/Placeholders';
 import useIsMounted from '@/hooks/useIsMounted';
 import { useExploreProfiles } from '@lens-protocol/react-web';
-import { useNetwork, useSwitchNetwork } from 'wagmi';
 import { polygon, polygonMumbai } from 'wagmi/chains';
 
 // https://docs.lens.xyz/docs/get-profiles
 // https://docs.lens.xyz/docs/use-profile
 // https://github.com/lens-protocol/lens-sdk/blob/main/examples/nextjs/pages/index.tsx
+
+const lensEnvIsProd =
+  process.env.NEXT_PUBLIC_LENS_ENV === 'production' ? true : false;
 
 const RecProfiles = () => {
   const { loading, error, data } = useExploreProfiles();
@@ -39,8 +42,6 @@ const RecProfiles = () => {
 const Lens = () => {
   const { name } = useAppContext();
   const isMounted = useIsMounted();
-  const { chain } = useNetwork();
-  const { switchNetwork } = useSwitchNetwork();
   const pageTitle = `Lens Social - ${name}.dev`;
 
   if (!isMounted) return null;
@@ -52,31 +53,29 @@ const Lens = () => {
           name="description"
           content="Connect your wallet to view recommended Lens handles to follow"
         />
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>"
+        />
       </Head>
       <SimpleLayout
         title="Lens Protocol - the web3 social platform"
         intro="Connect your wallet to view recommended Lens handles to follow"
       >
         <LoginButton />
-        {chain.id !== (polygon.id || polygonMumbai.id) && (
-          <>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              Please switch to Polygon
-            </p>
-            <button
-              className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              onClick={() => switchNetwork(polygon.id)}
-            >
-              Switch Network
-            </button>
-          </>
-        )}
+        <NetworkInfoSwitch />
         <WhenLoggedInWithProfile>
-          {({ profile }) => {
+          {({ profile, chain }) => {
             return (
               <div>
-                <div>{`Welcome @${profile?.handle || 'noprofile'}`}</div>
-                <RecProfiles />
+                <div className="my-4 text-white">{`Welcome @${
+                  profile?.handle || 'noprofile'
+                }`}</div>
+
+                {(lensEnvIsProd && chain?.id === polygon.id) ||
+                  (!lensEnvIsProd && chain?.id === polygonMumbai?.id && (
+                    <RecProfiles />
+                  ))}
               </div>
             );
           }}

@@ -12,11 +12,11 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 import {
-  LensConfig,
+  //LensConfig,
   LensProvider,
   sources,
   development,
-  staging,
+  production,
 } from '@lens-protocol/react-web';
 import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
 
@@ -24,9 +24,12 @@ import '@rainbow-me/rainbowkit/styles.css';
 import '@/styles/tailwind.css';
 import 'focus-visible';
 
+const lensEnv =
+  process.env.NEXT_PUBLIC_LENS_ENV === 'production' ? production : development;
+
 const lensConfig = {
   bindings: wagmiBindings(),
-  environment: staging,
+  environment: lensEnv,
   sources: [sources.lenster],
   // storage: localStorage(),
 };
@@ -39,14 +42,14 @@ const { chains, provider } = configureChains(
   ]
 );
 
-const { connectors } = getDefaultWallets({
+/* const { connectors } = getDefaultWallets({
   appName: 'Lens Social Page - lucasb.dev',
   chains,
-});
+}); */
 
 const wagmiClient = createClient({
   autoConnect: true,
-  connectors,
+  // connectors,
   provider,
 });
 

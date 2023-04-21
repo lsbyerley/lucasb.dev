@@ -2,13 +2,15 @@ import {
   useActiveProfile,
   useActiveWallet,
   WalletData,
-  ProfileOwnedByMeFragment,
+  ProfileOwnedByMe,
 } from '@lens-protocol/react-web';
+import { useNetwork, Chain } from 'wagmi';
 import { ReactNode } from 'react';
 
 type LoggedInConfig = {
   wallet: WalletData;
-  profile: ProfileOwnedByMeFragment;
+  profile: ProfileOwnedByMe;
+  chain: Chain;
 };
 
 export type WhenLoggedInWithProfileProps = {
@@ -18,6 +20,7 @@ export type WhenLoggedInWithProfileProps = {
 export function WhenLoggedInWithProfile({
   children,
 }: WhenLoggedInWithProfileProps) {
+  const { chain } = useNetwork();
   const { data: wallet, loading: walletLoading } = useActiveWallet();
   const { data: profile, error, loading: profileLoading } = useActiveProfile();
 
@@ -30,15 +33,15 @@ export function WhenLoggedInWithProfile({
   }
 
   if (wallet === null) {
-    console.log('LOG: no wallet!');
+    // console.log('LOG: no wallet!');
     return null;
   }
 
   if (profile === null || error) {
     // TODO guide user to create profile
-    console.log('LOG: no profile found!');
+    // console.log('LOG: no profile found!', error);
     // return null;
   }
 
-  return <>{children({ wallet, profile })}</>;
+  return <>{children({ wallet, profile, chain })}</>;
 }

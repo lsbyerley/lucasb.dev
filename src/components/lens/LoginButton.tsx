@@ -8,7 +8,11 @@ import { WhenLoggedInWithProfile } from './WhenLoggedInWithProfile';
 import { WhenLoggedOut } from './WhenLoggedOut';
 
 export function LoginButton({ handle }: { handle?: string }) {
-  const { execute: login, error: loginError, isPending: isLoginPending } = useWalletLogin();
+  const {
+    execute: login,
+    error: loginError,
+    isPending: isLoginPending,
+  } = useWalletLogin();
   const { execute: logout, isPending: isLogoutPending } = useWalletLogout();
 
   const { isConnected } = useAccount();
@@ -41,20 +45,28 @@ export function LoginButton({ handle }: { handle?: string }) {
   }, [loginError]);
 
   return (
-    <>
+    <div>
       <WhenLoggedInWithProfile>
         {() => (
-          <button onClick={onLogoutClick} disabled={isLogoutPending}>
-            <strong>Log out</strong>
+          <button
+            className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={onLogoutClick}
+            disabled={isLogoutPending}
+          >
+            Sign out of Lens
           </button>
         )}
       </WhenLoggedInWithProfile>
 
       <WhenLoggedOut>
-        <button onClick={onLoginClick} disabled={isLoginPending}>
-          <strong>Log in</strong>
+        <button
+          className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          onClick={onLoginClick}
+          disabled={isLoginPending}
+        >
+          Sign into Lens
         </button>
       </WhenLoggedOut>
-    </>
+    </div>
   );
 }
