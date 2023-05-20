@@ -17,7 +17,7 @@
     "@lens-protocol/wagmi": "1.0.1",
     "@mapbox/rehype-prism": "0.8.0",
     "@mdx-js/loader": "2.3.0",
-    "@next/mdx": "13.4.2",
+    "@next/mdx": "13.4.3",
     "@tailwindcss/typography": "0.5.9",
     "autoprefixer": "10.4.14",
     "clsx": "1.2.1",
@@ -26,7 +26,7 @@
     "feed": "4.2.2",
     "focus-visible": "5.2.0",
     "graphql": "16.6.0",
-    "next": "13.4.2",
+    "next": "13.4.3",
     "postcss-focus-visible": "8.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -36,10 +36,10 @@
     "wagmi": "0.12.7"
   },
   "devDependencies": {
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.2",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
     "prettier": "2.8.8",
-    "prettier-plugin-tailwindcss": "0.2.8",
+    "prettier-plugin-tailwindcss": "0.3.0",
     "typescript": "5.0.4"
   }
 }
