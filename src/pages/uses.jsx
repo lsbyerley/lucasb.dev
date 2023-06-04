@@ -45,9 +45,8 @@ export default function Uses() {
       >
         <div className="space-y-20">
           <ToolsSection title="Workstation">
-            <Tool title="16” MacBook Pro, 32GB RAM (2019)">
-              Running a docker build with vscode open and a chromium based
-              browser has this thing spinning so loud. Ready for an upgrade!
+            <Tool title="16” MacBook Pro, 64GB RAM (2021)">
+              The M1 Max chip is solid. Handles everything I need to do from a development standpoint very well. No more loud spinning fans!
             </Tool>
             <Tool title="Samsung 32” Class UR59 Series 4K UHD Curved Monitor">
               Picked this up at costco when it was discounted and I really like

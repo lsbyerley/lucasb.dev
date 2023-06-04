@@ -28,6 +28,13 @@ const followUser = async ({ address, profile, signer }) => {
   }
 };
 
+const profileImg = (profile) => {
+  const imgUrl = profile.picture?.original?.url;
+  // TODO: handle ipfs image urls
+  if (imgUrl && !imgUrl.includes('ipfs://')) return imgUrl;
+  return 'https://place-hold.it/40x40&fontsize=8';
+};
+
 const ProfileCard = ({ profile }) => {
   const { data: signer } = useSigner();
   const { address } = useAccount();
@@ -54,9 +61,7 @@ const ProfileCard = ({ profile }) => {
           </p>
         </div>
         <Image
-          src={
-            /*profile.picture?.original?.url || */ 'https://place-hold.it/40x40'
-          }
+          src={profileImg(profile)}
           alt={`Profile Image for ${profile.handle}`}
           className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
           width={40}
