@@ -10,7 +10,7 @@ import logoMoney from '@/images/logos/money.svg';
 import { useAppContext } from '@/AppContext';
 
 const projects = [
-  {
+  /*{
     name: 'Wallet Dashboard',
     description:
       'A web3 wallet dashboard. Connect your wallet and view your nfts and other stats. Built with NextJs, TailwindCSS, and wagmi',
@@ -39,7 +39,7 @@ const projects = [
       label: 'rbi-tricities',
     },
     logo: logoBolt,
-  },
+  },*/
   {
     name: 'My Personal Website',
     description: 'My personal website built with NextJs and TailwindCSS',
