@@ -4,19 +4,16 @@ import { ethers } from 'ethers';
 import { PlusCircleIcon, UserCircleIcon } from '@heroicons/react/20/solid';
 import LENSHUB from '@/lensabi/lenshub';
 import { LENS_HUB_CONTRACT_ADDRESS } from '@/lensapi';
-import { useAccount, useSigner } from 'wagmi';
-import { getSigner } from '@/lib/utils';
+import { useAccount, useWalletClient } from 'wagmi';
 
-const followUser = async ({ address, profile, signer }) => {
+const followUser = async ({ address, profile, walletClient }) => {
   console.log('LOG: coming soon..');
   return null;
-  console.log('LOG: wagmi signer', signer);
-  console.log('LOG: ethers signer', getSigner());
 
   const contract = new ethers.Contract(
     LENS_HUB_CONTRACT_ADDRESS,
     LENSHUB,
-    signer
+    walletClient
   );
 
   try {
@@ -36,7 +33,7 @@ const profileImg = (profile) => {
 };
 
 const ProfileCard = ({ profile }) => {
-  const { data: signer } = useSigner();
+  const { data: walletClient } = useWalletClient();
   const { address } = useAccount();
 
   // TODO: Find fix for profile images in next/image
@@ -72,7 +69,7 @@ const ProfileCard = ({ profile }) => {
         <div className="-mt-px flex divide-x divide-gray-200">
           <div className="flex w-0 flex-1">
             <button
-              onClick={() => followUser({ address, profile, signer })}
+              onClick={() => followUser({ address, profile, walletClient })}
               className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500"
             >
               <PlusCircleIcon
