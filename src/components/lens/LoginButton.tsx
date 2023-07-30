@@ -4,9 +4,6 @@ import toast from 'react-hot-toast';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 
-import { WhenLoggedInWithProfile } from './WhenLoggedInWithProfile';
-import { WhenLoggedOut } from './WhenLoggedOut';
-
 export function LoginButton({ handle }: { handle?: string }) {
   const {
     execute: login,
@@ -30,8 +27,10 @@ export function LoginButton({ handle }: { handle?: string }) {
     const { connector } = await connectAsync();
 
     if (connector instanceof InjectedConnector) {
-      const signer = await connector.getSigner();
-      await login(signer, handle);
+      const walletClient = await connector.getWalletClient();
+      await login({
+        address: walletClient.account.address,
+      });
     }
   };
 
@@ -46,8 +45,8 @@ export function LoginButton({ handle }: { handle?: string }) {
 
   return (
     <div>
-      <WhenLoggedInWithProfile>
-        {() => (
+      {isConnected && (
+        <div>
           <button
             className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             onClick={onLogoutClick}
@@ -55,18 +54,20 @@ export function LoginButton({ handle }: { handle?: string }) {
           >
             Sign out of Lens
           </button>
-        )}
-      </WhenLoggedInWithProfile>
+        </div>
+      )}
 
-      <WhenLoggedOut>
-        <button
-          className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          onClick={onLoginClick}
-          disabled={isLoginPending}
-        >
-          Sign into Lens
-        </button>
-      </WhenLoggedOut>
+      {!isConnected && (
+        <div>
+          <button
+            className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={onLoginClick}
+            disabled={isLoginPending}
+          >
+            Sign into Lens
+          </button>
+        </div>
+      )}
     </div>
   );
 }

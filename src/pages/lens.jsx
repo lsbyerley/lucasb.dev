@@ -8,6 +8,7 @@ import Placeholders from '@/components/Placeholders';
 import useIsMounted from '@/hooks/useIsMounted';
 import { useExploreProfiles } from '@lens-protocol/react-web';
 import { polygon, polygonMumbai } from 'wagmi/chains';
+import { useNetwork, useAccount } from 'wagmi';
 
 // https://docs.lens.xyz/docs/get-profiles
 // https://docs.lens.xyz/docs/use-profile
@@ -43,6 +44,8 @@ const Lens = () => {
   const { name } = useAppContext();
   const isMounted = useIsMounted();
   const pageTitle = `Lens Social - ${name}.dev`;
+  const { chain } = useNetwork();
+  const { address, isConnected } = useAccount();
 
   const shouldShowProfiles = (chain) => {
     // Prod and network is polygon or Dev and network is mumbai
