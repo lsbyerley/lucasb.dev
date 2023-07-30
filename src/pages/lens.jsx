@@ -14,8 +14,7 @@ import { useNetwork, useAccount } from 'wagmi';
 // https://docs.lens.xyz/docs/use-profile
 // https://github.com/lens-protocol/lens-sdk/blob/main/examples/nextjs/pages/index.tsx
 
-const lensEnvIsProd =
-  process.env.NEXT_PUBLIC_LENS_ENV === 'production' ? true : false;
+const lensEnvIsProd = process.env.NEXT_PUBLIC_LENS_ENV === 'production' ? true : false;
 
 const RecProfiles = () => {
   const { loading, error, data } = useExploreProfiles();
