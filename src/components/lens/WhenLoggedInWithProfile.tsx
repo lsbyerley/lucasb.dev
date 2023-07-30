@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   useActiveProfile,
   useActiveWallet,
@@ -5,7 +6,7 @@ import {
   ProfileOwnedByMe,
 } from '@lens-protocol/react-web';
 import { useNetwork, Chain } from 'wagmi';
-import { ReactNode } from 'react';
+import { useAccount } from 'wagmi';
 
 type LoggedInConfig = {
   wallet: WalletData;
@@ -21,19 +22,17 @@ export function WhenLoggedInWithProfile({
   children,
 }: WhenLoggedInWithProfileProps) {
   const { chain } = useNetwork();
+  const { isConnected } = useAccount();
   const { data: wallet, loading: walletLoading } = useActiveWallet();
   const { data: profile, error, loading: profileLoading } = useActiveProfile();
 
-  // console.log('chain', chain, polygon, polygonMumbai);
+  // console.log('LOG: testing', chain, wallet, profile);
 
-  // console.log('LOG: WhenLoggedIn', wallet, profile);
-
-  if (walletLoading || profileLoading) {
+  if (!isConnected || walletLoading || profileLoading) {
     return null;
   }
 
   if (wallet === null) {
-    // console.log('LOG: no wallet!');
     return null;
   }
 

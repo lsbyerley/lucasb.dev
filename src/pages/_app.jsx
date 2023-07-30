@@ -4,7 +4,7 @@ import ContextProvider from '@/providers/ContextProvider';
 import ApolloProvider from '@/providers/ApolloProvider';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { polygon, polygonMumbai } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
@@ -31,7 +31,7 @@ const lensConfig = {
   // storage: localStorage(),
 };
 
-const { chains, provider } = configureChains(
+const { chains, publicClient } = configureChains(
   [polygon, polygonMumbai],
   [
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
@@ -39,9 +39,10 @@ const { chains, provider } = configureChains(
   ]
 );
 
-const wagmiClient = createClient({
+const wagmiConfig = createConfig({
   autoConnect: true,
-  provider,
+  chains,
+  publicClient,
 });
 
 function usePrevious(value) {
@@ -59,7 +60,7 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <ContextProvider>
-      <WagmiConfig client={wagmiClient}>
+      <WagmiConfig config={wagmiConfig}>
         <LensProvider config={lensConfig}>
           <ApolloProvider>
             <div className="fixed inset-0 flex justify-center sm:px-8">
