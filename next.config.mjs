@@ -9,7 +9,6 @@ const nextConfig = {
   swcMinify: true,
   transpilePackages: ['@lens-protocol'],
   experimental: {
-    newNextLinkBehavior: true,
     scrollRestoration: true,
   },
   eslint: {
